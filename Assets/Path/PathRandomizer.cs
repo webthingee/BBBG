@@ -10,8 +10,12 @@ public class PathRandomizer : MonoBehaviour
     public int chanceOfEnemy = 95;
     
     public GameObject prefabOpenPath;
-    public GameObject prefabBlockedPath;
+    public GameObject[] prefabBlockedPath;
     public GameObject prefabEnemy;
+    
+    public GameObject prefabCoin;
+    public GameObject prefabHealing;
+
     
     void Start()
     {
@@ -47,9 +51,33 @@ public class PathRandomizer : MonoBehaviour
         for (int index = 0; index < path.Count; index++)
         {
             PathTypes p = path[index];
+
+            if (p == PathTypes.O)
+            {
+                prefabToPlace = prefabOpenPath;
+                
+                if (Random.Range(0, 101) < 1)
+                {
+                    prefabToPlace = prefabCoin;
+                }
+                
+                if (Random.Range(0, 101) < 1)
+                {
+                    prefabToPlace = prefabHealing;
+                }
+                
+            }
+
+            if (p == PathTypes.X)
+            {
+                prefabToPlace = prefabBlockedPath[0];
+                
+                if (Random.Range(0, 101) < 22)
+                {
+                    prefabToPlace = prefabBlockedPath[1];
+                } 
+            }
             
-            if (p == PathTypes.O) prefabToPlace = prefabOpenPath;
-            if (p == PathTypes.X) prefabToPlace = prefabBlockedPath;
             if (p == PathTypes.E) prefabToPlace = prefabEnemy;
 
             var prefab = Instantiate(prefabToPlace, transform.position, Quaternion.identity, transform);

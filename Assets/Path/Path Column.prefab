@@ -45,11 +45,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path: 
   pathHeight: 8
-  chanceOfOpen: 77
-  chanceOfEnemy: 95
+  chanceOfOpen: 85
+  chanceOfEnemy: 97
   prefabOpenPath: {fileID: 9126726961828554071, guid: f8a3c8143cc3641e99ea4160982d22f0,
     type: 3}
-  prefabBlockedPath: {fileID: 3137279246461245094, guid: cefae84dbea6b482c80e14e7b4a92704,
-    type: 3}
+  prefabBlockedPath:
+  - {fileID: 3137279246461245094, guid: cefae84dbea6b482c80e14e7b4a92704, type: 3}
+  - {fileID: 1752606838134882900, guid: 91c87ef2197b2462598961f3fadb4b18, type: 3}
   prefabEnemy: {fileID: 1752606838134882900, guid: 6e80a6a8b50944b9e86fdda7d826ab8a,
+    type: 3}
+  prefabCoin: {fileID: 1752606838134882900, guid: a577eee801fb3473cbb50e1a505ea11e,
+    type: 3}
+  prefabHealing: {fileID: 1752606838134882900, guid: acb22b290171c4603a2c748682ecf9cf,
     type: 3}

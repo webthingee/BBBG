@@ -11,6 +11,7 @@ public class PathColumns : MonoBehaviour
     private void Awake()
     {
         nextMoveTime = moveInterval;
+        FindObjectOfType<PlayerMove>().transform.parent = transform;
     }
 
     private void Start()
