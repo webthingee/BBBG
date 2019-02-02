@@ -6,6 +6,7 @@ public class PathColumnsGenerator : MonoBehaviour
     public GameObject randomColumn;
 
     public int initialOpen;
+    public int endOpen;
     public GameObject openColumn;
 
 
@@ -21,6 +22,10 @@ public class PathColumnsGenerator : MonoBehaviour
         for (int i = 0; i < columns; i++)
         {
             if (i <= initialOpen)
+            {
+                columnToPlace = openColumn;
+            }
+            else if (endOpen != 0 && i >= columns - endOpen)
             {
                 columnToPlace = openColumn;
             }

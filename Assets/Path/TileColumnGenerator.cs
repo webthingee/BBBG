@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class TileColumnGenerator : MonoBehaviour
 {
-    [SerializeField] private bool openColumn;
-    
+    public bool openColumn;
     public List<PathTypes> path = new List<PathTypes>();
 
     public int pathHeight = 8;

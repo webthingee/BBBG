@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,13 +13,25 @@ public struct MinMax
 
 public class ProjectileSpawner : MonoBehaviour
 {
-    public List<GameObject> fieldObjectsList = new List<GameObject>();
-    
+    [Header("Spawn Details")]
     public MinMax spawnInterval;
+    public List<GameObject> prefabProjectileList = new List<GameObject>();
+    
+    [Header("Multi Spawn Points")]
     public bool useMultiSpawnPoints;
+    public MinMax multiSpawnPointsX;
+    public MinMax multiSpawnPointsY;
+    
+    [Header("Transforms For Spawn Points")]
+    public List<Transform> turretsList = new List<Transform>();
     
     private float spawnRate = 5f;
-    [SerializeField] private float nextSpawnTime = 1f;
+    private float nextSpawnTime = 1f;
+
+    private void Awake()
+    {
+        spawnRate = Random.Range(spawnInterval.minValue, spawnInterval.maxValue);
+    }
 
     private void Update()
     {
@@ -35,15 +48,22 @@ public class ProjectileSpawner : MonoBehaviour
         
         if (useMultiSpawnPoints)
         {
-            spawnPoint = new Vector3(16f, (int)Random.Range(-5f, 4f), transform.position.z);
+            var posX = (int) Random.Range(multiSpawnPointsX.minValue, multiSpawnPointsX.maxValue);
+            var posY = (int) Random.Range(multiSpawnPointsY.minValue, multiSpawnPointsY.maxValue);
+            
+            spawnPoint = new Vector3(posX, posY, transform.position.z);
+        }
+        else if (turretsList.Any())
+        {
+            spawnPoint = turretsList[Random.Range(0, turretsList.Count)].position;
         }
         else
         {
             spawnPoint = transform.position;
         }
         
-        int index = Random.Range(0, fieldObjectsList.Count);
+        int index = Random.Range(0, prefabProjectileList.Count);
 
-        GameObject fieldObj = Instantiate(fieldObjectsList[index], spawnPoint, Quaternion.identity);
+        Instantiate(prefabProjectileList[index], spawnPoint, Quaternion.identity);
     }
 }
