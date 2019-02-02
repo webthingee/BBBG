@@ -47,8 +47,9 @@ MonoBehaviour:
   pathHeight: 8
   chanceOfOpen: 85
   chanceOfEnemy: 97
-  prefabOpenPath: {fileID: 9126726961828554071, guid: f8a3c8143cc3641e99ea4160982d22f0,
-    type: 3}
+  prefabOpenPath:
+  - {fileID: 9126726961828554071, guid: f8a3c8143cc3641e99ea4160982d22f0, type: 3}
+  - {fileID: 9126726961828554071, guid: 99182d5bcb47a422eac9f6d3eedc251c, type: 3}
   prefabBlockedPath:
   - {fileID: 3137279246461245094, guid: cefae84dbea6b482c80e14e7b4a92704, type: 3}
   - {fileID: 1752606838134882900, guid: 91c87ef2197b2462598961f3fadb4b18, type: 3}

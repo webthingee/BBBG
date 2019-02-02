@@ -1,52 +1,76 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class PathRandomizer : MonoBehaviour
+public class TileColumnGenerator : MonoBehaviour
 {
+    [SerializeField] private bool openColumn;
+    
     public List<PathTypes> path = new List<PathTypes>();
 
     public int pathHeight = 8;
     public int chanceOfOpen = 75;
     public int chanceOfEnemy = 95;
     
-    public GameObject prefabOpenPath;
+    public GameObject[] prefabOpenPath;
     public GameObject[] prefabBlockedPath;
     public GameObject prefabEnemy;
-    
     public GameObject prefabCoin;
     public GameObject prefabHealing;
 
-    
-    void Start()
+    private void Start()
     {
-        BuildPath();
-        Invoke("DisplayPath", 1f);
+        if (!openColumn)
+        {
+            BuildRandomColumnForLevel();
+        }
+        else
+        {
+            BuildOpenColumnForLevel();
+        }
+        
+        Invoke("DisplayColumnFromList", 1f);
     }
 
-    private void BuildPath()
+    private PathTypes PathTypeRandom()
+    {
+        int rand = Random.Range(0, 101);
+            
+        if (rand <= chanceOfOpen) return PathTypes.O;
+        
+        if (rand > chanceOfOpen && rand <= chanceOfEnemy) return PathTypes.X;
+
+        if (rand > chanceOfEnemy && rand <= 100) return PathTypes.E;
+
+        return PathTypes.X;
+    }
+
+    private void BuildRandomColumnForLevel()
     {        
         path.Add(PathTypes.X);
         
         for (int i = 0; i < pathHeight; i++)
-        {            
-            int rand = Random.Range(0, 101);
-            
-            if (rand <= chanceOfOpen) path.Add(PathTypes.O);
-            
-            if (rand > chanceOfOpen && rand <= chanceOfEnemy) path.Add(PathTypes.X);
-            
-            if (rand > chanceOfEnemy && rand <= 100) path.Add(PathTypes.E); // change to an insert to open within 4 or more?
-
-            //System.Array A = System.Enum.GetValues(typeof(PathTypes));
-            //PathTypes V = (PathTypes)A.GetValue(Random.Range(0,A.Length));            
+        {
+            path.Add(PathTypeRandom());
+        }
+        
+        path.Add(PathTypes.X);
+    }
+    
+    private void BuildOpenColumnForLevel()
+    {        
+        path.Add(PathTypes.X);
+        
+        for (int i = 0; i < pathHeight; i++)
+        {
+            path.Add(PathTypes.O);
         }
         
         path.Add(PathTypes.X);
     }
 
-    private void DisplayPath()
+    private void DisplayColumnFromList()
     {
-        GameObject prefabToPlace = prefabOpenPath;
+        GameObject prefabToPlace = prefabOpenPath[0];
 
         for (int index = 0; index < path.Count; index++)
         {
@@ -54,7 +78,7 @@ public class PathRandomizer : MonoBehaviour
 
             if (p == PathTypes.O)
             {
-                prefabToPlace = prefabOpenPath;
+                prefabToPlace = prefabOpenPath[Random.Range(0, prefabOpenPath.Length)];
                 
                 if (Random.Range(0, 101) < 1)
                 {
@@ -80,9 +104,8 @@ public class PathRandomizer : MonoBehaviour
             
             if (p == PathTypes.E) prefabToPlace = prefabEnemy;
 
-            var prefab = Instantiate(prefabToPlace, transform.position, Quaternion.identity, transform);
             Vector3 pos = transform.position + Vector3.up * index;
-            prefab.transform.position = pos;
+            Instantiate(prefabToPlace, pos, Quaternion.identity, transform);
         }
     }
 }
