@@ -39,6 +39,10 @@ public class PointsManager : MonoBehaviour
     private void Awake()
     {
         Singleton();
+    }
+
+    private void Start()
+    {
         Coins = coins;
         Bears = bears;
     }

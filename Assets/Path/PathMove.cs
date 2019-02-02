@@ -18,7 +18,6 @@ public class PathMove : MonoBehaviour
 
     private void Update()
     {
-
         if (!canMove) return;
         if (Time.time < nextMoveTime) return;
         

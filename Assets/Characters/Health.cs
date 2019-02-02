@@ -26,7 +26,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    private void Awake()
+    private void Start()
     {
         CurrentHealth = maxHealth;
     }

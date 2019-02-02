@@ -25,7 +25,7 @@ public class PathColumnsGenerator : MonoBehaviour
             {
                 columnToPlace = openColumn;
             }
-            else if (endOpen != 0 && i >= columns - endOpen)
+            else if (endOpen > 0 && i >= columns - endOpen)
             {
                 columnToPlace = openColumn;
             }
