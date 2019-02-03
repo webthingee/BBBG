@@ -17,6 +17,11 @@ public class BossStage : MonoBehaviour
             LevelMaster.instance.phaseBoss = false;
             LevelMaster.instance.phaseCompleteBoss = true;
         }
+
+        if (GetComponentInChildren<ProjectileSpawner>().turretsList.Count <= 0)
+        {
+            playerWins = true;
+        }
     }
 
     public void StartStage()

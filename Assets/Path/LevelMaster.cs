@@ -7,6 +7,8 @@ public class LevelMaster : MonoBehaviour
     public static LevelMaster instance;
 
     public GameObject prefabLevel;
+    public float levelSpeed;
+    
     public GameObject prefabBossStage;
     
     private GameObject level;
@@ -15,6 +17,9 @@ public class LevelMaster : MonoBehaviour
     public bool phasePath;
     public bool phaseBoss;
     public bool phaseCompleteBoss;
+
+    [Header("Debugs")] 
+    public bool doNotLoadLevel;
 
     private void Awake()
     {
@@ -33,8 +38,13 @@ public class LevelMaster : MonoBehaviour
 
     private void SceneManagerOnSceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
-        level = Instantiate(prefabLevel, Vector3.zero, Quaternion.identity);
-        bossStage = Instantiate(prefabBossStage, prefabBossStage.transform.position, Quaternion.identity, level.transform);
+        if (!doNotLoadLevel)
+        {
+            level = Instantiate(prefabLevel, Vector3.zero, Quaternion.identity);
+            level.GetComponent<PathMove>().moveInterval = levelSpeed;
+            
+            bossStage = Instantiate(prefabBossStage, prefabBossStage.transform.position, Quaternion.identity, level.transform);
+        }
         
         phasePath = false;
         phaseBoss = false;
@@ -54,15 +64,15 @@ public class LevelMaster : MonoBehaviour
 
     IEnumerator SetupPhase()
     {
-        yield return new WaitForSeconds(1f);
+        //yield return new WaitForSeconds(1f);
         
         Debug.Log("Start Setup");
         
-        yield return new WaitForSeconds(3f);
+        //yield return new WaitForSeconds(3f);
         
         Debug.Log("Setting Up...");
         
-        yield return new WaitForSeconds(2f);
+        //yield return new WaitForSeconds(2f);
         
         Debug.Log("Press AnyKey To Begin");
 
@@ -77,11 +87,11 @@ public class LevelMaster : MonoBehaviour
         for (int i = 3; i > 0; i--)
         {
             Debug.Log(i.ToString());
-            yield return new WaitForSeconds(1f);
+        //    yield return new WaitForSeconds(1f);
         }
         
         Debug.Log("GO!");
-        yield return new WaitForSeconds(1f);
+        //yield return new WaitForSeconds(1f);
     }
 
     IEnumerator PathPhase()
@@ -89,7 +99,7 @@ public class LevelMaster : MonoBehaviour
         Debug.Log("Start PathPhase");
         
         FindObjectOfType<PlayerMove>().canMove = true;
-        level.GetComponent<PathMove>().canMove = true;
+        if (level) level.GetComponent<PathMove>().canMove = true;
         
         EnemyMove[] enemies = FindObjectsOfType<EnemyMove>();
         foreach (EnemyMove enemy in enemies)
@@ -99,11 +109,11 @@ public class LevelMaster : MonoBehaviour
 
         while (phasePath)
         {
-            MovePath();
+            if (level) MovePath();
             yield return null;
         }        
         
-        level.GetComponent<PathMove>().canMove = false;
+        if (level) level.GetComponent<PathMove>().canMove = false;
 
         Debug.Log("Complete PathPhase");
     }
@@ -112,7 +122,7 @@ public class LevelMaster : MonoBehaviour
     {
         Debug.Log("Start BossPhase");
         
-        bossStage.GetComponent<BossStage>().StartStage();
+        if (bossStage) bossStage.GetComponent<BossStage>().StartStage();
 
         while (phaseBoss)
         {
@@ -126,7 +136,7 @@ public class LevelMaster : MonoBehaviour
     {
         Debug.Log("Start BossCompletePhase");
         
-        bossStage.GetComponent<BossStage>().StopStage();
+        if (bossStage) bossStage.GetComponent<BossStage>().StopStage();
 
         yield return new WaitForSeconds(1f);
         

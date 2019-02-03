@@ -9,19 +9,20 @@ public class Health : MonoBehaviour
     {
         get
         {
-            HeadsUpDisplay.instance.health.text = "Battle Scars \n" + currentHealth;
+            if (CompareTag("Player")) HeadsUpDisplay.instance.health.text = "Battle Scars \n" + currentHealth;
+            
             return currentHealth;
         }
 
         set
         {
             currentHealth = value;
-            HeadsUpDisplay.instance.health.text = "Battle Scars \n" + currentHealth;
+            if (CompareTag("Player")) HeadsUpDisplay.instance.health.text = "Battle Scars \n" + currentHealth;
 
             if (currentHealth <= 0)
             {
-                Debug.Log("Player Dead");
-                Time.timeScale = 0;
+                Debug.Log("Dead");
+                Destroy(gameObject);
             }
         }
     }

@@ -9,6 +9,7 @@ public class Healing : MonoBehaviour
         if (!other.CompareTag("Player")) return;
         
         Debug.Log("Healing");
+        
         other.GetComponent<Health>().Heal(healing);
         
         Destroy(gameObject);

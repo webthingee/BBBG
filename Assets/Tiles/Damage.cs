@@ -3,16 +3,29 @@
 public class Damage : MonoBehaviour
 {
     public int damage = 1;
+    public string componentName = "PlayerMove";
+
+    private void Awake()
+    {
+        componentName = "PlayerMove";
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return;
+        if (other.CompareTag(transform.tag)) return;
+
+        if (other.GetComponent(componentName) == null) return;
         
-        Debug.Log("Take Damage from " + name);
-        other.GetComponent<Health>().Damage(damage);
+        Debug.Log(other.name + " was hit");
         
-        // slow or hold character for moment
-        
+        Health health = other.GetComponent<Health>();
+        if (health != null)
+        {
+            health.Damage(damage);
+        }
+
+        // slow or hold character for moment??
+
         Destroy(gameObject);
     }
 }

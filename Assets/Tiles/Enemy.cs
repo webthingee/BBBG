@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
         if (!other.CompareTag("Player")) return;
         
         Debug.Log("Take Damage from Enemy");
+        PointsManager.instance.Bears++;
         other.GetComponent<Health>().Damage(damage);
         
         // slow character for moment

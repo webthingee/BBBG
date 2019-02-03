@@ -185,7 +185,7 @@ RectTransform:
   - {fileID: 1243395684}
   - {fileID: 1380148827}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -245,7 +245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &281859402
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -318,7 +318,6 @@ GameObject:
   m_Component:
   - component: {fileID: 336209676}
   - component: {fileID: 336209675}
-  - component: {fileID: 336209674}
   - component: {fileID: 336209677}
   m_Layer: 0
   m_Name: Game Manager
@@ -327,19 +326,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &336209674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 336209673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2610b85ccc75c4428b2e472f5a7c1ca7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 1
 --- !u!114 &336209675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,13 +364,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee0237649214a464e80696f936b9bb44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabLevel: {fileID: 1062914669038528582, guid: 242d939f837b84bd7911d2e5229fad0c,
+  prefabLevel: {fileID: 1062914669038528582, guid: 3fefc59d88c9d4d389785f9e2ec6c10c,
     type: 3}
-  prefabBossStage: {fileID: 740945449290500268, guid: 5387ff0c6f09b42799aab33e5cd73a22,
+  levelSpeed: 0.25
+  prefabBossStage: {fileID: 740945449290500268, guid: 9c060f5db04a2491c8e26af9cf69fa51,
     type: 3}
   phasePath: 0
   phaseBoss: 0
   phaseCompleteBoss: 0
+  doNotLoadLevel: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,7 +1174,7 @@ PrefabInstance:
     - target: {fileID: 8507890835187458619, guid: 3b971ef599d65462a943f5ed77a260f9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8507890835187458619, guid: 3b971ef599d65462a943f5ed77a260f9,
         type: 3}
@@ -1205,7 +1193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 528479883, guid: 3b971ef599d65462a943f5ed77a260f9, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b971ef599d65462a943f5ed77a260f9, type: 3}

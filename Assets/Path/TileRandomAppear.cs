@@ -25,7 +25,11 @@ public class TileRandomAppear : MonoBehaviour
         var randY = Random.Range(-4, 4);
         
         Vector3 pos = new Vector3(randX, randY, 0);
+        
         var t = Instantiate(prefabTileToAppear, pos, Quaternion.identity, transform);
+        TriggerProjectile tProj = t.GetComponent<TriggerProjectile>();
+        tProj.moveSpeed = 5f;
+        
         Destroy(t, Random.Range(keepAliveRange.minValue, keepAliveRange.maxValue));
     }
 }
