@@ -1,18 +1,17 @@
 ﻿using UnityEngine;
 
-public class PlayerMove : MonoBehaviour
+public class EnemyMove : MonoBehaviour
 {
     public bool canMove;
+    public MinMax moveInterval;
     public LayerMask blocker;
     
-    private float moveInterval = 0.5f;
     private float nextMoveTime;
-
     private Vector2 moveDir;
     
     private void Awake()
     {
-        nextMoveTime = 0;
+        nextMoveTime = Random.Range(moveInterval.minValue, moveInterval.maxValue);
         moveDir = Vector2.zero;
     }
 
@@ -25,32 +24,31 @@ public class PlayerMove : MonoBehaviour
         if (Time.time > nextMoveTime)
         {            
             transform.position = transform.position + (Vector3)moveDir;
-            nextMoveTime = Time.time + moveInterval;
+            nextMoveTime = Time.time + Random.Range(moveInterval.minValue, moveInterval.maxValue);
             moveDir = Vector2.zero;
         }
     }
 
     private void PlayerInput()
     {
-        float hMovement = Input.GetAxisRaw("Horizontal");
-        float vMovement = Input.GetAxisRaw("Vertical");
+        int randDir = Random.Range(0, 5);
                 
-        if (vMovement > 0.1f)
+        if (randDir == 1)
         {
             moveDir = Vector2.up;
         }
         
-        if (vMovement < -0.1f)
+        if (randDir == 2)
         {
             moveDir = Vector2.down;
         }
 
-        if (hMovement > 0.1f)
+        if (randDir == 3)
         {
             moveDir = Vector2.right;
         }
 
-        if (hMovement < -0.1f)
+        if (randDir == 4)
         {
             moveDir = Vector2.left;
         }
@@ -64,11 +62,11 @@ public class PlayerMove : MonoBehaviour
 
     private bool CheckForOpenSpace(Vector2 dir)
     {
-        return !Physics2D.Raycast(transform.position, dir, 1f, blocker);
+        return !Physics2D.Raycast(transform.position + (Vector3)dir, dir, 1f, blocker);
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawLine(transform.position, transform.position + (Vector3)moveDir);
+        Gizmos.DrawLine(transform.position + (Vector3)moveDir * .75f, transform.position + (Vector3)moveDir * 1.25f);
     }
 }
