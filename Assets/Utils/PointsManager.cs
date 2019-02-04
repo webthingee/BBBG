@@ -52,7 +52,7 @@ public class PointsManager : MonoBehaviour
         if (instance == null) //Check if instance already exists
         {
             instance = this; //if not, set instance to this
-            DontDestroyOnLoad(gameObject); //Sets this to not be destroyed when reloading scene
+            //DontDestroyOnLoad(gameObject); //Sets this to not be destroyed when reloading scene
         }
         else if (instance != this) //If instance already exists and it's not this:
         {

@@ -88,7 +88,11 @@ public class TileColumnGenerator : MonoBehaviour
                 {
                     prefabToPlace = prefabHealing;
                 }
-                
+
+                if (openColumn)
+                {
+                    prefabToPlace = prefabOpenPath[Random.Range(0, prefabOpenPath.Length)]; 
+                }
             }
 
             if (p == PathTypes.X)

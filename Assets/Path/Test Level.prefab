@@ -89,10 +89,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7faaebee83f8d41daa1a9a2813d11714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  columns: 1
+  columns: 15
   randomColumn: {fileID: 5381802680441864525, guid: 75cda8f35b8464856ae985a4b59e2065,
     type: 3}
-  initialOpen: 1
+  initialOpen: 5
   endOpen: 0
   openColumn: {fileID: 5381802680441864525, guid: 943b84a26f4c5474a8799639bf9bd8c5,
     type: 3}

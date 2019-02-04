@@ -22,6 +22,13 @@ public class Health : MonoBehaviour
             if (currentHealth <= 0)
             {
                 Debug.Log("Dead");
+
+                if (CompareTag("Player"))
+                {
+                    Debug.Log("player died");
+                    LevelMaster.instance.PlayerDied();    
+                }
+                
                 Destroy(gameObject);
             }
         }

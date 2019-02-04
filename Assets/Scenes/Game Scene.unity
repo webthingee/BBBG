@@ -185,7 +185,7 @@ RectTransform:
   - {fileID: 1243395684}
   - {fileID: 1380148827}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -368,11 +368,13 @@ MonoBehaviour:
   prefabLevel: {fileID: 1062914669038528582, guid: 3fefc59d88c9d4d389785f9e2ec6c10c,
     type: 3}
   levelSpeed: 0.5
-  columns: 0d000000
-  initialOpen: 05000000
-  endOpen: 00000000
+  columns: 0d0000001600000037000000
+  initialOpen: 050000000500000005000000
+  endOpen: 000000000000000000000000
   prefabBossStage:
   - {fileID: 740945449290500268, guid: e155fd41ba69148138e201a14f04b5f7, type: 3}
+  - {fileID: 740945449290500268, guid: 0011a70fc6ee249b1996f481bfaf799e, type: 3}
+  - {fileID: 740945449290500268, guid: 9c060f5db04a2491c8e26af9cf69fa51, type: 3}
   overlay: {fileID: 1303628716}
   overlayText: {fileID: 591507582}
   phasePath: 0
@@ -946,12 +948,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1303628716}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 15.047473, y: -23.625244, z: -0.5026659}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1916649480}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1380148826
 GameObject:
@@ -1493,7 +1495,7 @@ Transform:
   - {fileID: 281859403}
   - {fileID: 548012936}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &8507890835341808822
 PrefabInstance:
@@ -1545,7 +1547,7 @@ PrefabInstance:
     - target: {fileID: 8507890835187458619, guid: 3b971ef599d65462a943f5ed77a260f9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8507890835187458619, guid: 3b971ef599d65462a943f5ed77a260f9,
         type: 3}
@@ -1574,7 +1576,7 @@ PrefabInstance:
     - target: {fileID: 8559990273193620353, guid: 3b971ef599d65462a943f5ed77a260f9,
         type: 3}
       propertyPath: maxHealth
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b971ef599d65462a943f5ed77a260f9, type: 3}

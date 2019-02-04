@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using System.Linq;
+using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
@@ -6,17 +8,29 @@ public class LevelMaster : MonoBehaviour
 {
     public static LevelMaster instance;
 
+    public int level;
+    
+    [Header("Level Stage")]
     public GameObject prefabLevel;
     public float levelSpeed;
+    public int[] columns;
+    public int[] initialOpen;
+    public int[] endOpen;
     
-    public GameObject prefabBossStage;
-    
-    private GameObject level;
-    private GameObject bossStage;
+    [Header("Boss Stage")]
+    public GameObject[] prefabBossStage;
+
+    public GameObject overlay;
+    public TextMeshProUGUI overlayText;
 
     public bool phasePath;
     public bool phaseBoss;
     public bool phaseCompleteBoss;
+    
+    private GameObject levelStage;
+    private GameObject bossStage;
+    private bool isPlayerDead;
+    private bool hasPlayerWon;
 
     [Header("Debugs")] 
     public bool doNotLoadLevel;
@@ -24,37 +38,19 @@ public class LevelMaster : MonoBehaviour
     private void Awake()
     {
         Singleton();
+        //level = 0;
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        SceneManager.sceneLoaded += SceneManagerOnSceneLoaded;
-    }
-    
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= SceneManagerOnSceneLoaded;
-    }
-
-    private void SceneManagerOnSceneLoaded(Scene arg0, LoadSceneMode arg1)
-    {
-        if (!doNotLoadLevel)
-        {
-            level = Instantiate(prefabLevel, Vector3.zero, Quaternion.identity);
-            level.GetComponent<PathMove>().moveInterval = levelSpeed;
-            
-            bossStage = Instantiate(prefabBossStage, prefabBossStage.transform.position, Quaternion.identity, level.transform);
-        }
-        
-        phasePath = false;
-        phaseBoss = false;
-        phaseCompleteBoss = false;
-        
-        StartCoroutine(PhasesMaster());
+        level++;
+        LoadNewLevel();
     }
 
     IEnumerator PhasesMaster()
     {
+        phasePath = false;
+        overlay.SetActive(true);
         yield return StartCoroutine(SetupPhase());
         yield return StartCoroutine(PathPhase());
         yield return StartCoroutine(BossPhase());
@@ -63,18 +59,21 @@ public class LevelMaster : MonoBehaviour
     }
 
     IEnumerator SetupPhase()
-    {
-        //yield return new WaitForSeconds(1f);
+    {        
+        yield return new WaitForSeconds(1f);
         
         Debug.Log("Start Setup");
+        overlayText.text = "Start Setup";
         
-        //yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         
         Debug.Log("Setting Up...");
+        overlayText.text = "Setting Up...";
         
-        //yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         
         Debug.Log("Press AnyKey To Begin");
+        overlayText.text = "Press AnyKey To Begin";
 
         while (!phasePath)
         {
@@ -83,15 +82,24 @@ public class LevelMaster : MonoBehaviour
         }
         
         Debug.Log("Complete Setup");
-
+        overlayText.text = "Complete Setup";
+        
         for (int i = 3; i > 0; i--)
         {
             Debug.Log(i.ToString());
-        //    yield return new WaitForSeconds(1f);
+            overlayText.text += " " + i;
+            
+            yield return new WaitForSeconds(1f);
         }
         
         Debug.Log("GO!");
-        //yield return new WaitForSeconds(1f);
+        overlayText.text = "GO!";
+        
+        yield return new WaitForSeconds(1f);
+
+        overlay.SetActive(false);
+
+        yield return new WaitForSeconds(1f);
     }
 
     IEnumerator PathPhase()
@@ -99,7 +107,7 @@ public class LevelMaster : MonoBehaviour
         Debug.Log("Start PathPhase");
         
         FindObjectOfType<PlayerMove>().canMove = true;
-        if (level) level.GetComponent<PathMove>().canMove = true;
+        if (levelStage) levelStage.GetComponent<PathMove>().canMove = true;
         
         EnemyMove[] enemies = FindObjectsOfType<EnemyMove>();
         foreach (EnemyMove enemy in enemies)
@@ -109,11 +117,11 @@ public class LevelMaster : MonoBehaviour
 
         while (phasePath)
         {
-            if (level) MovePath();
+            if (levelStage) MovePath();
             yield return null;
         }        
         
-        if (level) level.GetComponent<PathMove>().canMove = false;
+        if (levelStage) levelStage.GetComponent<PathMove>().canMove = false;
 
         Debug.Log("Complete PathPhase");
     }
@@ -140,29 +148,54 @@ public class LevelMaster : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
         
-        Debug.Log("Player Wins!");
-
+        overlay.SetActive(true);
+        
+        Debug.Log("Player Wins! Any button to continue to next farm");
+        overlayText.text = "Cylon Overload Destroyed! Press Any Key To Continue...";
+        
+        
         while (phaseCompleteBoss)
-        {            
-            if (Input.anyKey) StartOver();
+        {
+            if (Input.anyKey) NextLevel();
             yield return null;
         }
-        
-        Debug.Log("Complete BossCompletePhase");
     }
     
     private void MovePath()
     {
-        if (level.transform.position.x != -bossStage.transform.localPosition.x) return;
+        if (levelStage.transform.position.x != -bossStage.transform.localPosition.x) return;
         
         phasePath = false;
         phaseBoss = true;
     }
 
-    private void StartOver()
+    private void NextLevel()
     {
-        Debug.Log("Start Over");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        level++;
+        
+        phaseCompleteBoss = false;
+        
+        Debug.Log("Loading Next Level");
+
+        if (level >= prefabBossStage.Length)
+        {
+            PlayerWins();
+        }
+        else
+        {
+            LoadNewLevel();
+        }
+    }
+    
+    private void StartNewGame()
+    {
+        StopAllCoroutines();
+        
+        isPlayerDead = false;
+        
+        Debug.Log("Start New Game");
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);        
     }
 
     private void Singleton()
@@ -170,12 +203,106 @@ public class LevelMaster : MonoBehaviour
         if (instance == null) //Check if instance already exists
         {
             instance = this; //if not, set instance to this
-            DontDestroyOnLoad(gameObject); //Sets this to not be destroyed when reloading scene
         }
         else if (instance != this) //If instance already exists and it's not this:
         {
             Debug.Log("not the instance " + name);
             Destroy(gameObject); //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
+        }
+    }
+    
+    private void LoadNewLevel()
+    {
+        phasePath = false;
+        phaseBoss = false;
+        phaseCompleteBoss = false;
+
+        int levelIndex = level - 1;
+                
+        FindObjectOfType<PlayerMove>().transform.parent = null;
+        FindObjectOfType<PlayerMove>().canMove = false;
+
+        if (levelStage) Destroy(levelStage.gameObject);
+        if (bossStage) Destroy(bossStage.gameObject);
+        
+        if (!doNotLoadLevel)
+        {
+            levelStage = Instantiate(prefabLevel, Vector3.zero, Quaternion.identity);
+            levelStage.GetComponent<PathMove>().moveInterval = levelSpeed;
+            levelStage.GetComponent<PathMove>().canMove = false;
+            PathColumnsGenerator generator = levelStage.GetComponentInChildren<PathColumnsGenerator>();
+            generator.columns = columns[levelIndex];
+            generator.initialOpen = initialOpen[levelIndex];
+            generator.endOpen = endOpen[levelIndex];
+            
+            bossStage = Instantiate(prefabBossStage[levelIndex], prefabBossStage[levelIndex].transform.position, Quaternion.identity, levelStage.transform);
+            var pos = bossStage.transform.position;
+            pos.x = columns[levelIndex];
+            bossStage.transform.position = pos;
+        }
+        
+        FindObjectOfType<PlayerMove>().transform.position = new Vector3(-10, 0, 0);
+        
+        StartCoroutine(PhasesMaster());
+    }
+
+    public void PlayerDied()
+    {
+        StopAllCoroutines();
+        
+        FindObjectOfType<PlayerMove>().canMove = false;
+        levelStage.GetComponent<PathMove>().canMove = false;
+
+        isPlayerDead = true;
+        StartCoroutine(AfterPlayerDied());
+    }
+
+    IEnumerator AfterPlayerDied()
+    {
+        overlay.SetActive(true);
+        
+        Debug.Log("Player Died!");
+        overlayText.text = "Player Died";;
+
+        yield return new WaitForSeconds(1f);
+        
+        overlay.SetActive(true);
+        
+        overlayText.text += "\n Press Any Key To Continue...";
+        
+        while (isPlayerDead)
+        {
+            if (Input.anyKey) StartNewGame();
+            yield return null;
+        }
+    }
+    
+    public void PlayerWins()
+    {
+        StopAllCoroutines();
+        
+        FindObjectOfType<PlayerMove>().canMove = false;
+        levelStage.GetComponent<PathMove>().canMove = false;
+
+        hasPlayerWon = true;
+        StartCoroutine(PlayerHasWon());
+    }
+    
+    IEnumerator PlayerHasWon()
+    {
+        overlay.SetActive(true);
+        
+        Debug.Log("Player Wins!");
+        overlayText.text = "Player Wins";;
+
+        yield return new WaitForSeconds(5f);
+                
+        overlayText.text += "\n Press Any Key To Continue...";
+        
+        while (hasPlayerWon)
+        {
+            if (Input.anyKey) StartNewGame();
+            yield return null;
         }
     }
 }
