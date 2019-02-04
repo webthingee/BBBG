@@ -16,6 +16,7 @@ public class ProjectileSpawner : MonoBehaviour
     [Header("Spawn Details")]
     public MinMax spawnInterval;
     public List<GameObject> prefabProjectileList = new List<GameObject>();
+    public float destroyTime = 10f;
     
     [Header("Multi Spawn Points")]
     public bool useMultiSpawnPoints;
@@ -64,6 +65,7 @@ public class ProjectileSpawner : MonoBehaviour
         
         int index = Random.Range(0, prefabProjectileList.Count);
 
-        Instantiate(prefabProjectileList[index], spawnPoint, Quaternion.identity);
+        GameObject proj = Instantiate(prefabProjectileList[index], spawnPoint, Quaternion.identity);
+        Destroy(proj, destroyTime);
     }
 }
