@@ -1,14 +1,15 @@
 ﻿using System.Collections;
-using System.Linq;
-using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using TMPro;
 
 public class LevelMaster : MonoBehaviour
 {
     public static LevelMaster instance;
 
+    [Header("Level")]
     public int level;
+    public bool doNotLoadLevel;
     
     [Header("Level Stage")]
     public GameObject prefabLevel;
@@ -20,24 +21,26 @@ public class LevelMaster : MonoBehaviour
     [Header("Boss Stage")]
     public GameObject[] prefabBossStage;
 
+    [Header("Overlay")]
     public GameObject overlay;
     public TextMeshProUGUI overlayText;
 
-    public bool phasePath;
-    public bool phaseBoss;
-    public bool phaseCompleteBoss;
+    [HideInInspector] public bool phasePath;
+    [HideInInspector] public bool phaseBoss;
+    [HideInInspector] public bool phaseCompleteBoss;
     
     private GameObject levelStage;
     private GameObject bossStage;
+    private PlayerMove playerMove;
     private bool isPlayerDead;
     private bool hasPlayerWon;
-
-    [Header("Debugs")] 
-    public bool doNotLoadLevel;
 
     private void Awake()
     {
         Singleton();
+        
+        playerMove = FindObjectOfType<PlayerMove>();
+
         //level = 0;
     }
 
@@ -106,7 +109,7 @@ public class LevelMaster : MonoBehaviour
     {
         Debug.Log("Start PathPhase");
         
-        FindObjectOfType<PlayerMove>().canMove = true;
+        playerMove.canMove = true;
         if (levelStage) levelStage.GetComponent<PathMove>().canMove = true;
         
         EnemyMove[] enemies = FindObjectsOfType<EnemyMove>();
@@ -171,7 +174,7 @@ public class LevelMaster : MonoBehaviour
 
     private void NextLevel()
     {
-        level++;
+        level++; // second appearance - improve?
         
         phaseCompleteBoss = false;
         
@@ -219,8 +222,8 @@ public class LevelMaster : MonoBehaviour
 
         int levelIndex = level - 1;
                 
-        FindObjectOfType<PlayerMove>().transform.parent = null;
-        FindObjectOfType<PlayerMove>().canMove = false;
+        playerMove.transform.parent = null;
+        playerMove.canMove = false;
 
         if (levelStage) Destroy(levelStage.gameObject);
         if (bossStage) Destroy(bossStage.gameObject);
@@ -236,12 +239,12 @@ public class LevelMaster : MonoBehaviour
             generator.endOpen = endOpen[levelIndex];
             
             bossStage = Instantiate(prefabBossStage[levelIndex], prefabBossStage[levelIndex].transform.position, Quaternion.identity, levelStage.transform);
-            var pos = bossStage.transform.position;
+            Vector3 pos = bossStage.transform.position;
             pos.x = columns[levelIndex];
             bossStage.transform.position = pos;
         }
         
-        FindObjectOfType<PlayerMove>().transform.position = new Vector3(-10, 0, 0);
+        playerMove.transform.position = new Vector3(-10, 0, 0);
         
         StartCoroutine(PhasesMaster());
     }
@@ -250,7 +253,7 @@ public class LevelMaster : MonoBehaviour
     {
         StopAllCoroutines();
         
-        FindObjectOfType<PlayerMove>().canMove = false;
+        playerMove.canMove = false;
         levelStage.GetComponent<PathMove>().canMove = false;
 
         isPlayerDead = true;
@@ -281,7 +284,7 @@ public class LevelMaster : MonoBehaviour
     {
         StopAllCoroutines();
         
-        FindObjectOfType<PlayerMove>().canMove = false;
+        playerMove.canMove = false;
         levelStage.GetComponent<PathMove>().canMove = false;
 
         hasPlayerWon = true;
