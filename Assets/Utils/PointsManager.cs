@@ -6,7 +6,7 @@ public class PointsManager : MonoBehaviour
 {
     public static PointsManager instance;
 
-    private int coins;
+    [SerializeField] private int coins;
     private int bears;
 
     public int Coins

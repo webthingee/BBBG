@@ -1,9 +1,17 @@
 ﻿using UnityEngine;
 
+public enum DamageTypes
+{
+    None,
+    Spike,
+    Projectile
+}
+
 public class Damage : MonoBehaviour
 {
     public int damage = 1;
     public string componentName = "PlayerMove";
+    public DamageTypes damageType;
 
     private void Awake()
     {
@@ -15,6 +23,8 @@ public class Damage : MonoBehaviour
         if (other.CompareTag(transform.tag)) return;
 
         if (other.GetComponent(componentName) == null) return;
+
+        if (damageType == DamageTypes.Spike && other.GetComponentInChildren<BuffSpikeSafe>() != null) return;
         
         Debug.Log(other.name + " was hit");
         

@@ -5,7 +5,7 @@ public class PlayerMove : MonoBehaviour
     public bool canMove;
     public LayerMask blocker;
     
-    [SerializeField] private float moveInterval = 0.5f;
+    public float moveInterval = 0.5f;
     private float nextMoveTime;
 
     private Vector2 moveDir;

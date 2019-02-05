@@ -16,6 +16,7 @@ public class TileColumnGenerator : MonoBehaviour
     public GameObject prefabEnemy;
     public GameObject prefabCoin;
     public GameObject prefabHealing;
+    public GameObject prefabStore;
 
     private void Start()
     {
@@ -87,15 +88,21 @@ public class TileColumnGenerator : MonoBehaviour
             {                
                 if (openColumn) continue;
                 
+                if (Random.Range(0, 101) < 2)
+                {
+                    prefabToPlace = prefabStore;
+                }
+                
                 if (Random.Range(0, 101) < 5)
                 {
                     prefabToPlace = prefabCoin;
                 }
                 
-                if (Random.Range(0, 101) < 1)
+                if (Random.Range(0, 101) < 2)
                 {
                     prefabToPlace = prefabHealing;
                 }
+                
             }
 
             if (p == PathTypes.Blocker)
@@ -107,8 +114,11 @@ public class TileColumnGenerator : MonoBehaviour
                     prefabToPlace = prefabBlockedPath[1];
                 } 
             }
-            
-            if (p == PathTypes.Enemy) prefabToPlace = prefabEnemy;
+
+            if (p == PathTypes.Enemy)
+            {
+                prefabToPlace = prefabEnemy;
+            }
 
             if (p == PathTypes.Barrier)
             {

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5381802680441864527}
   - component: {fileID: 5381802680441864526}
   m_Layer: 0
-  m_Name: Column Random
+  m_Name: Column Open
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,10 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a922df6ccdcd24df9b3c888115e43647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openColumn: 0
+  openColumn: 1
   path: 
   pathHeight: 8
-  chanceOfOpen: 75
+  chanceOfOpen: 85
   chanceOfEnemy: 97
   prefabOpenPath:
   - {fileID: 9126726961828554071, guid: f8a3c8143cc3641e99ea4160982d22f0, type: 3}
@@ -64,4 +64,6 @@ MonoBehaviour:
   prefabCoin: {fileID: 1752606838134882900, guid: a577eee801fb3473cbb50e1a505ea11e,
     type: 3}
   prefabHealing: {fileID: 1752606838134882900, guid: acb22b290171c4603a2c748682ecf9cf,
+    type: 3}
+  prefabStore: {fileID: 1752606838134882900, guid: 9094a38980fde4ad0821d54cb1d1bc0a,
     type: 3}

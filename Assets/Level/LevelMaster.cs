@@ -21,8 +21,10 @@ public class LevelMaster : MonoBehaviour
     
     [Header("Boss Stage")]
     public GameObject[] prefabBossStage;
-
+    
+    [Header("Helpers")]
     public GameObject quickSpawner;
+    public GameObject store;
 
     [Header("Overlay")]
     public GameObject overlay;
@@ -32,7 +34,7 @@ public class LevelMaster : MonoBehaviour
     [HideInInspector] public bool phaseBoss;
     [HideInInspector] public bool phaseCompleteBoss;
     
-    private GameObject levelStage;
+    [HideInInspector] public GameObject levelStage;
     private GameObject bossStage;
     private PlayerMove playerMove;
     private bool isPlayerDead;
@@ -42,6 +44,7 @@ public class LevelMaster : MonoBehaviour
     {
         Singleton();
         
+        store.SetActive(false);
         playerMove = FindObjectOfType<PlayerMove>();
 
         //level = 0;
@@ -66,17 +69,17 @@ public class LevelMaster : MonoBehaviour
 
     IEnumerator SetupPhase()
     {        
-        yield return new WaitForSeconds(1f);
+        //yield return new WaitForSeconds(1f);
         
         Debug.Log("Start Setup");
         overlayText.text = "Start Setup";
         
-        yield return new WaitForSeconds(1f);
+        //yield return new WaitForSeconds(1f);
         
         Debug.Log("Setting Up...");
         overlayText.text = "Setting Up...";
         
-        yield return new WaitForSeconds(1f);
+        //yield return new WaitForSeconds(1f);
         
         Debug.Log("Press AnyKey To Begin");
         overlayText.text = "Press AnyKey To Begin";

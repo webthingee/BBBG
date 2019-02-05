@@ -37,5 +37,21 @@ public class PathColumnsGenerator : MonoBehaviour
             Vector3 pos = transform.position + Vector3.right * i;
             Instantiate(columnToPlace, pos, Quaternion.identity, transform);
         }
+        
+        Invoke("MinimizeStoreTriggers", 2f);
+    }
+
+    private void MinimizeStoreTriggers()
+    {
+        TriggerStore[] stores = FindObjectsOfType<TriggerStore>();
+        if (stores.Length <= 2) return;
+            
+        for (int i = stores.Length - 1; i > 0; i--)
+        {
+            if (i != (int) stores.Length / 2)
+            {
+                Destroy(stores[i].gameObject);
+            }
+        }
     }
 }
