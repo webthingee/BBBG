@@ -1,10 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class StoreManager : MonoBehaviour
 {
+    public bool canSelect;
+    
+    public Buff[] buffList;
+    
     public List<Buff> storeItemsList = new List<Buff>();
     public List<int> storeCoinList = new List<int>();
     
@@ -13,25 +19,30 @@ public class StoreManager : MonoBehaviour
     public List<TextMeshProUGUI> storeItemCostListField = new List<TextMeshProUGUI>();
 
     private PlayerMove playerMove;
-    
+
     public void OnEnable()
     {
+        canSelect = false;
+        SetUpStore();
+        
         playerMove = FindObjectOfType<PlayerMove>();
         playerMove.canMove = false;
         
         Time.timeScale = 0;
-
-        SetUpStore();
     }
 
     private void OnDisable()
     {
-        playerMove.canMove = true;
         Time.timeScale = 1;
+        
+        playerMove.canMove = true;
+        canSelect = false;
     }
 
     private void Update()
     {
+        if (!canSelect) return;
+        
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             if (storeCoinList[0] > PointsManager.instance.Coins) return;
@@ -58,19 +69,60 @@ public class StoreManager : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
+            canSelect = false;
             Time.timeScale = 1;
             gameObject.SetActive(false);
         }
     }
 
-    public void SetUpStore()
+    private void SetUpStore()
     {
+        StartCoroutine(StoreSetUp());
+    }
+    
+    IEnumerator StoreSetUp()
+    {
+        Debug.Log("Store Setup...");
+        yield return StartCoroutine(StoreRandomItems());
+        yield return StartCoroutine(StoreSetupItems());
+        yield return StartCoroutine(SelectionsAvailable());
+        Debug.Log("... Store Is Ready");
+    }
+
+    IEnumerator StoreRandomItems()
+    {
+        storeItemsList.Clear();
+        
+        for (int i = 0; i < 3; i++)
+        {
+            storeItemsList.Add(buffList[Random.Range(0, buffList.Length)]);
+        }
+
+        yield return true;
+    }
+    
+    IEnumerator StoreSetupItems()
+    {
+        storeCoinList.Clear();
+            
         for (int i = 0; i < 3; i++)
         {
             storeImageListField[i].sprite = storeItemsList[i].buffBadgePrefab.GetComponent<Image>().sprite;
             storeImageListField[i].color = storeItemsList[i].buffBadgePrefab.GetComponent<Image>().color;
+            
             storeItemNameListField[i].text = storeItemsList[i].name;
+            
+            storeCoinList.Add(Random.Range(2, LevelMaster.instance.level + 2 * 2));
             storeItemCostListField[i].text = storeCoinList[i].ToString();
         }
+
+        yield return true;
+    }
+
+    IEnumerator SelectionsAvailable()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        canSelect = true;
+        //@TODO show arrows at this point, to make clear this is when you can select
     }
 }

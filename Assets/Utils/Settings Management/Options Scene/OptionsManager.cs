@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class OptionsManager : MonoBehaviour 
 {    
+    #pragma warning disable 1
     [Header("Scenes")]
     [SerializeField] private string gameScene;
     [SerializeField] private string optionsScene;
@@ -15,6 +16,7 @@ public class OptionsManager : MonoBehaviour
     [Header("Buttons")]
     [SerializeField] private Button gameStartButton;
     [SerializeField] private Button gameReturnButton;
+    #pragma warning enable 1
 
     
     public void Start()
