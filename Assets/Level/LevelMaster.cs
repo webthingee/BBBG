@@ -44,7 +44,7 @@ public class LevelMaster : MonoBehaviour
     {
         Singleton();
         
-        store.SetActive(false);
+        if (store) store.SetActive(false);
         playerMove = FindObjectOfType<PlayerMove>();
 
         //level = 0;

@@ -3,6 +3,7 @@
 public class EnemyMove : MonoBehaviour
 {
     public bool canMove;
+    public bool verticalOnly;
     public MinMax moveInterval;
     public LayerMask blocker;
     
@@ -31,7 +32,9 @@ public class EnemyMove : MonoBehaviour
 
     private void PlayerInput()
     {
-        int randDir = Random.Range(0, 5);
+        int randDir = Random.Range(1, 5);
+        
+        if (verticalOnly) randDir = Random.Range(1, 3);
                 
         if (randDir == 1)
         {

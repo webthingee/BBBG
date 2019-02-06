@@ -9,7 +9,6 @@ public class PathColumnsGenerator : MonoBehaviour
     public int endOpen;
     public GameObject openColumn;
 
-
     private void Start()
     {
         PlaceColumns();
@@ -38,7 +37,7 @@ public class PathColumnsGenerator : MonoBehaviour
             Instantiate(columnToPlace, pos, Quaternion.identity, transform);
         }
         
-        //Invoke("MinimizeStoreTriggers", 2f);
+        Invoke("MinimizeStoreTriggers", 2f);
     }
 
     private void MinimizeStoreTriggers()

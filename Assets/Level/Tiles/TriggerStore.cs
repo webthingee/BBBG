@@ -8,7 +8,7 @@ public class TriggerStore : MonoBehaviour
         
         Debug.Log("Trigger Store");
 
-        LevelMaster.instance.store.SetActive(true);
+        if (LevelMaster.instance.store) LevelMaster.instance.store.SetActive(true);
         Time.timeScale = 0;
         
         Destroy(gameObject);
