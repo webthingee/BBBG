@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public class StoreManager : MonoBehaviour
 {
     public bool canSelect;
+    public GameObject controls;
     
     public Buff[] buffList;
     
@@ -33,10 +34,11 @@ public class StoreManager : MonoBehaviour
 
     private void OnDisable()
     {
+        canSelect = false;
         Time.timeScale = 1;
         
+        playerMove.nextMoveTime = Time.time + playerMove.moveInterval;
         playerMove.canMove = true;
-        canSelect = false;
     }
 
     private void Update()
@@ -83,6 +85,7 @@ public class StoreManager : MonoBehaviour
     IEnumerator StoreSetUp()
     {
         Debug.Log("Store Setup...");
+        controls.SetActive(false);
         yield return StartCoroutine(StoreRandomItems());
         yield return StartCoroutine(StoreSetupItems());
         yield return StartCoroutine(SelectionsAvailable());
@@ -122,6 +125,7 @@ public class StoreManager : MonoBehaviour
     IEnumerator SelectionsAvailable()
     {
         yield return new WaitForSecondsRealtime(1f);
+        controls.SetActive(true);
         canSelect = true;
         //@TODO show arrows at this point, to make clear this is when you can select
     }

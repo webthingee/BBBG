@@ -6,7 +6,7 @@ public class PlayerMove : MonoBehaviour
     public LayerMask blocker;
     
     public float moveInterval = 0.5f;
-    private float nextMoveTime;
+    public float nextMoveTime;
 
     private Vector2 moveDir;
     private bool moveNow;

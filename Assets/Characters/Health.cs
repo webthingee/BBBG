@@ -60,6 +60,7 @@ public class Health : MonoBehaviour
     private void Start()
     {
         CurrentHealth = maxHealth;
+        MaxHealth = maxHealth;
     }
 	
     public void Damage(int damage = 1)
