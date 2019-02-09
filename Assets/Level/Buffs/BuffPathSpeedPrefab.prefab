@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cfc7adfc6aae42188e214647156e20b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  title: Slow Path
   buffBadgePrefab: {fileID: 4797262029507950510, guid: 6e140f4575ff04c97a7c7b8cd8b1641b,
     type: 3}
   buffBadge: {fileID: 0}

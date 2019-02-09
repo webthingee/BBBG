@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3441154332269775108}
   - component: {fileID: 422118087931415022}
   m_Layer: 0
-  m_Name: BuffSpeed
+  m_Name: BuffSpeedPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecef824ac365b47679565ba76c7e5468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffImage: {fileID: 21300000, guid: 7ca433d5d7dd8465a9972a72c9b2b3c7, type: 3}
+  title: Fast Move
   buffBadgePrefab: {fileID: 4797262029507950510, guid: 51fe20af58f87427a9bea15e96b1cfd2,
     type: 3}
   buffBadge: {fileID: 0}

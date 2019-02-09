@@ -8,18 +8,22 @@ public class PointsManager : MonoBehaviour
 
     [SerializeField] private int coins;
     private int bears;
+    
+    private BeetsDisplay bds;
 
     public int Coins
     {
         get
         {
-            HeadsUpDisplay.instance.beets.text = "Beets \n" + coins;
+            HeadsUpDisplay.instance.beets.text = coins.ToString();
+            bds.UpdateBeetsDisplay(coins);
             return coins; 
         }
         set
         {
             coins = value;
-            HeadsUpDisplay.instance.beets.text = "Beets \n" + coins;
+            HeadsUpDisplay.instance.beets.text = coins.ToString();
+            bds.UpdateBeetsDisplay(coins);
         }
     }
     public int Bears
@@ -39,6 +43,8 @@ public class PointsManager : MonoBehaviour
     private void Awake()
     {
         Singleton();
+        
+        bds = FindObjectOfType<BeetsDisplay>();
     }
 
     private void Start()

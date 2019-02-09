@@ -9,6 +9,7 @@ public class PlayerMove : MonoBehaviour
     private float nextMoveTime;
 
     private Vector2 moveDir;
+    private bool moveNow;
     
     private void Awake()
     {
@@ -22,12 +23,22 @@ public class PlayerMove : MonoBehaviour
         
         PlayerInput();
 
-        if (Time.time > nextMoveTime)
-        {            
+        if (moveNow)
+        {
+            moveNow = false;
+            
             transform.position = transform.position + (Vector3)moveDir;
-            nextMoveTime = Time.time + moveInterval;
             moveDir = Vector2.zero;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        if (Time.time > nextMoveTime)
+        {
+            nextMoveTime = Time.time + moveInterval;
+            moveNow = true;
+        }    
     }
 
     private void PlayerInput()

@@ -6,8 +6,8 @@ public class BuffPathSpeed : Buff
 
     private void Awake()
     {
+        base.Awake();
         pathMove = FindObjectOfType<LevelMaster>().levelStage.GetComponent<PathMove>();
-        Destroy(gameObject, 5f);
     }
 
     private void Start() // start ?
@@ -22,11 +22,13 @@ public class BuffPathSpeed : Buff
 
     public void BuffStart()
     {
+        Destroy(gameObject, 5f);
+        
         if (pathMove == null) return; 
             
         pathMove.moveInterval += 0.1f;
         FindObjectOfType<LevelMaster>().levelSpeed += 0.1f;
-        buffBadge = Instantiate(buffBadgePrefab, Vector3.zero, Quaternion.identity, GameObject.FindWithTag("Respawn").transform);
+        buffBadge = Instantiate(buffBadgePrefab, Vector3.zero, Quaternion.identity, displayAt);
 
     }
 

@@ -6,16 +6,17 @@ public class BuffSpeed : Buff
 
     private void Awake()
     {
+        base.Awake();
         playerMove = GetComponentInParent<PlayerMove>();
         Destroy(gameObject, 5f);
     }
 
-    private void Start() // start ?
+    private void Start()
     {
         BuffStart();
     }
 
-    private void OnDestroy() // destroy ?
+    private void OnDestroy()
     {
         BuffEnd();
     }
@@ -23,7 +24,7 @@ public class BuffSpeed : Buff
     public void BuffStart()
     {
         if (playerMove != null) playerMove.moveInterval -= 0.1f;
-        buffBadge = Instantiate(buffBadgePrefab, Vector3.zero, Quaternion.identity, GameObject.FindWithTag("Respawn").transform);
+        buffBadge = Instantiate(buffBadgePrefab, Vector3.zero, Quaternion.identity, displayAt);
 
     }
 

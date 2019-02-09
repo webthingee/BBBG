@@ -2,14 +2,16 @@
 
 public class Health : MonoBehaviour 
 {
-    public int maxHealth;
+    [SerializeField] private int maxHealth;
     [SerializeField] private int currentHealth;
+
+    private HeartsDisplay hds;
 
     public int CurrentHealth
     {
         get
         {
-            if (CompareTag("Player")) HeadsUpDisplay.instance.health.text = "Battle Scars \n" + currentHealth;
+            if (CompareTag("Player")) hds.UpdateHeartsDisplay(maxHealth, currentHealth); //HeadsUpDisplay.instance.health.text = "Heart Beats \n" + currentHealth;
             
             return currentHealth;
         }
@@ -17,7 +19,13 @@ public class Health : MonoBehaviour
         set
         {
             currentHealth = value;
-            if (CompareTag("Player")) HeadsUpDisplay.instance.health.text = "Battle Scars \n" + currentHealth;
+
+            if (currentHealth >= maxHealth)
+            {
+                currentHealth = maxHealth;
+            }
+
+            if (CompareTag("Player")) hds.UpdateHeartsDisplay(maxHealth, currentHealth); //HeadsUpDisplay.instance.health.text = "Heart Beats \n" + currentHealth;
 
             if (currentHealth <= 0)
             {
@@ -32,6 +40,21 @@ public class Health : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    public int MaxHealth
+    {
+        get { return maxHealth; }
+        set
+        {
+            maxHealth = value;
+            CurrentHealth++;
+        }
+    }
+
+    private void Awake()
+    {
+        hds = FindObjectOfType<HeartsDisplay>();
     }
 
     private void Start()

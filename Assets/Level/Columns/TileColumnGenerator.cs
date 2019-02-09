@@ -93,12 +93,12 @@ public class TileColumnGenerator : MonoBehaviour
                     prefabToPlace = prefabStore;
                 }
                 
-                if (Random.Range(0, 101) < 5)
+                if (Random.Range(0, 201) < 5)
                 {
                     prefabToPlace = prefabCoin;
                 }
                 
-                if (Random.Range(0, 101) < 2)
+                if (Random.Range(0, 201) < 2)
                 {
                     prefabToPlace = prefabHealing;
                 }
@@ -107,11 +107,11 @@ public class TileColumnGenerator : MonoBehaviour
 
             if (p == PathTypes.Blocker)
             {
-                prefabToPlace = prefabBlockedPath[0];
+                prefabToPlace = prefabBlockedPath[Random.Range(1, prefabBlockedPath.Length)];
                 
                 if (Random.Range(0, 101) < 40)
                 {
-                    prefabToPlace = prefabBlockedPath[1];
+                    prefabToPlace = prefabBlockedPath[0];
                 } 
             }
 

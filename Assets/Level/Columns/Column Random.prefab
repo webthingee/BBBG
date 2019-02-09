@@ -53,8 +53,11 @@ MonoBehaviour:
   - {fileID: 9126726961828554071, guid: 99182d5bcb47a422eac9f6d3eedc251c, type: 3}
   - {fileID: 9126726961828554071, guid: a2968a1f83e114a18b733e60bbcc0a46, type: 3}
   prefabBlockedPath:
-  - {fileID: 3137279246461245094, guid: cefae84dbea6b482c80e14e7b4a92704, type: 3}
   - {fileID: 1752606838134882900, guid: 91c87ef2197b2462598961f3fadb4b18, type: 3}
+  - {fileID: 3137279246461245094, guid: cefae84dbea6b482c80e14e7b4a92704, type: 3}
+  - {fileID: 3137279246461245094, guid: df6dbabb24acb4abca415cea08533587, type: 3}
+  - {fileID: 3137279246461245094, guid: 3f9949e59f51948dd8d0b8f2c4743ddd, type: 3}
+  - {fileID: 3137279246461245094, guid: 309f38c66bac64f66a12be5994af22b3, type: 3}
   prefabBarrierPath:
   - {fileID: 3137279246461245094, guid: e173e86c5b6aa45ea987409f865b0f46, type: 3}
   - {fileID: 3137279246461245094, guid: 43c518b968578484b9cf09a6bfd97b8c, type: 3}

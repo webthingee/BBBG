@@ -110,7 +110,7 @@ public class StoreManager : MonoBehaviour
             storeImageListField[i].sprite = storeItemsList[i].buffBadgePrefab.GetComponent<Image>().sprite;
             storeImageListField[i].color = storeItemsList[i].buffBadgePrefab.GetComponent<Image>().color;
             
-            storeItemNameListField[i].text = storeItemsList[i].name;
+            storeItemNameListField[i].text = storeItemsList[i].title;
             
             storeCoinList.Add(Random.Range(2, LevelMaster.instance.level + 2 * 2));
             storeItemCostListField[i].text = storeCoinList[i].ToString();

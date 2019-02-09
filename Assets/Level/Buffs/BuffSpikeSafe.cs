@@ -1,25 +1,26 @@
 ﻿using UnityEngine;
 
 public class BuffSpikeSafe : Buff
-{    
+{
     private void Awake()
     {
+        base.Awake();
         Destroy(gameObject, 15f);
     }
 
-    private void Start() // start ?
+    private void Start()
     {
         BuffStart();
     }
 
-    private void OnDestroy() // destroy ?
+    private void OnDestroy()
     {
         BuffEnd();
     }
 
     public void BuffStart()
     {
-        buffBadge = Instantiate(buffBadgePrefab, Vector3.zero, Quaternion.identity, GameObject.FindWithTag("Respawn").transform);
+        buffBadge = Instantiate(buffBadgePrefab, Vector3.zero, Quaternion.identity, displayAt);
     }
 
     public void BuffEnd()

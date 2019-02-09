@@ -7,6 +7,7 @@ public class TileRandomAppear : MonoBehaviour
     private float nextMoveTime = 1f;
     
     public MinMax keepAliveRange;
+    public Transform[] definedSpots;
 
     public GameObject prefabTileToAppear;
 
@@ -20,11 +21,20 @@ public class TileRandomAppear : MonoBehaviour
     }
 
     private void PlaceRandomTile()
-    {
-        var randX = Random.Range(-12, 0);
-        var randY = Random.Range(-4, 4);
+    {        
+        Vector3 pos = Vector3.zero;
+
+        if (definedSpots.Length > 0)
+        {
+            pos = definedSpots[Random.Range(0, definedSpots.Length)].position;
+        }
+        else
+        {
+            var randX = Random.Range(-12, 0);
+            var randY = Random.Range(-4, 4);
         
-        Vector3 pos = new Vector3(randX, randY, 0);
+            pos = new Vector3(randX, randY, 0);
+        }
         
         var t = Instantiate(prefabTileToAppear, pos, Quaternion.identity, transform);
         TriggerProjectile tProj = t.GetComponent<TriggerProjectile>();
