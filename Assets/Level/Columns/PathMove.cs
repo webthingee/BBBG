@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using DG.Tweening;
 
 public class PathMove : MonoBehaviour
 {
@@ -20,10 +21,16 @@ public class PathMove : MonoBehaviour
     {
         if (!canMove) return;
         if (Time.time < nextMoveTime) return;
-        
-        transform.position = transform.position + Vector3.left * 0.5f;
-        // @TODO Lerp?
 
+        MovePath();
+        
         nextMoveTime = Time.time + moveInterval;
+        
+        //transform.position = transform.position + Vector3.left * 0.5f;
+    }
+
+    private void MovePath()
+    {
+        transform.DOMoveX(transform.position.x - 0.5f, moveInterval * 0.75f);
     }
 }

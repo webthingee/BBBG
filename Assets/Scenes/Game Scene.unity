@@ -1895,6 +1895,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114598190186535748, guid: 0010ce66b0ca743349f09a54b832ca95,
+        type: 3}
+      propertyPath: musicVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114598190186535748, guid: 0010ce66b0ca743349f09a54b832ca95,
+        type: 3}
+      propertyPath: sfxVolume
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0010ce66b0ca743349f09a54b832ca95, type: 3}
 --- !u!4 &1358707091 stripped
@@ -3035,7 +3045,13 @@ PrefabInstance:
     - target: {fileID: 8507890835187458621, guid: 3b971ef599d65462a943f5ed77a260f9,
         type: 3}
       propertyPath: moveInterval
-      value: 0.5
+      value: 0.6
       objectReference: {fileID: 0}
+    - target: {fileID: 8559990273193620353, guid: 3b971ef599d65462a943f5ed77a260f9,
+        type: 3}
+      propertyPath: damageAudioEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 793055cc805dc4cbabe28b4b7279bd17,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b971ef599d65462a943f5ed77a260f9, type: 3}

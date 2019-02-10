@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 
 public class Health : MonoBehaviour 
 {
     [SerializeField] private int maxHealth;
     [SerializeField] private int currentHealth;
+
+    public AudioEvent damageAudioEvent;
 
     private HeartsDisplay hds;
 
@@ -66,6 +69,13 @@ public class Health : MonoBehaviour
     public void Damage(int damage = 1)
     {
         CurrentHealth -= damage;
+
+        if (damageAudioEvent != null) damageAudioEvent.Play(SoundManager.instance.GetOpenAudioSource());
+
+        var mainCam = Camera.main;
+        if (mainCam == null) return;
+        mainCam.transform.DOPunchPosition(new Vector3(0.75f, 0.75f), 0.1f);
+        mainCam.transform.DOPunchRotation(new Vector3(0.75f, 0.75f), 0.1f);
     }
 
     public void Heal(int damage = 1)

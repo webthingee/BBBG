@@ -5,7 +5,7 @@ public class PlayerMove : MonoBehaviour
     public bool canMove;
     public LayerMask blocker;
     
-    public float moveInterval = 0.5f;
+    public float moveInterval = 1f;
     public float nextMoveTime;
 
     private Vector2 moveDir;
@@ -23,10 +23,11 @@ public class PlayerMove : MonoBehaviour
         if (!canMove) return;
         
         PlayerInput();
-
+        
         if (doResetPlayerInput)
         {
             moveDir = Vector3.zero;
+            doResetPlayerInput = false;
         }
 
         if (moveNow)
@@ -35,7 +36,6 @@ public class PlayerMove : MonoBehaviour
             
             transform.position = transform.position + (Vector3)moveDir;
             moveDir = Vector2.zero;
-            doResetPlayerInput = false;
         }
     }
 
@@ -45,7 +45,7 @@ public class PlayerMove : MonoBehaviour
         {
             nextMoveTime = Time.time + moveInterval;
             moveNow = true;
-        }    
+        }
     }
 
     private void PlayerInput()

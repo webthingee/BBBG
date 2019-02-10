@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.Experimental.PlayerLoop;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -31,6 +33,14 @@ public class OptionsManager : MonoBehaviour
         GetMusicVolume();
         GetSfxVolume();
         WhichGameButton();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            UnloadSceneAdd();
+        }
     }
 
     public void SetMusicVolume(float value)

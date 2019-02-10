@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
 {
@@ -24,9 +25,16 @@ public class EnemyMove : MonoBehaviour
 
         if (Time.time > nextMoveTime)
         {            
+            transform.DOScale(new Vector3(1.1f, 1f, 0f), 0.1f);
+            
             transform.position = transform.position + (Vector3)moveDir;
-            nextMoveTime = Time.time + Random.Range(moveInterval.minValue, moveInterval.maxValue);
+            
+            var mi = Random.Range(moveInterval.minValue, moveInterval.maxValue);
+            
+            nextMoveTime = Time.time + mi;
             moveDir = Vector2.zero;
+
+            transform.DOScale(new Vector3(0.9f, 1f, 1), mi);
         }
     }
 
