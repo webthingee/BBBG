@@ -5,13 +5,7 @@ using UnityEngine.UI;
 public class HeartsDisplay : MonoBehaviour
 {
     public GameObject heartPrefab;
-    
-    private List<GameObject> heartsList = new List<GameObject>();
-
-    private void Start()
-    {
-        UpdateHeartsDisplay(7, 3);
-    }
+    private readonly List<GameObject> heartsList = new List<GameObject>();
 
     public void UpdateHeartsDisplay(int maxHealth, int currentHealth)
     {

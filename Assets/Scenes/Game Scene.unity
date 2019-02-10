@@ -2234,12 +2234,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94ab93f8c35e44a0ab0d962c6b956cb8, type: 3}
---- !u!1 &1495230404 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2043556609490313196, guid: c74042e8773e348cfbb58170b07868c9,
-    type: 3}
-  m_PrefabInstance: {fileID: 2045179024071063341}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1552936806
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2875,16 +2869,6 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5782585798201890071, guid: c74042e8773e348cfbb58170b07868c9,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5782585798201890071, guid: c74042e8773e348cfbb58170b07868c9,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5264574937945290615, guid: c74042e8773e348cfbb58170b07868c9,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -2925,21 +2909,6 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5505332756856111753, guid: c74042e8773e348cfbb58170b07868c9,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5505332756856111753, guid: c74042e8773e348cfbb58170b07868c9,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2045179024100875127, guid: c74042e8773e348cfbb58170b07868c9,
-        type: 3}
-      propertyPath: controls
-      value: 
-      objectReference: {fileID: 1495230404}
     - target: {fileID: 8503712798793556364, guid: c74042e8773e348cfbb58170b07868c9,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -2976,6 +2945,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2598379686084719302, guid: c74042e8773e348cfbb58170b07868c9,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 487601295263009354, guid: c74042e8773e348cfbb58170b07868c9,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 487601295263009354, guid: c74042e8773e348cfbb58170b07868c9,
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1

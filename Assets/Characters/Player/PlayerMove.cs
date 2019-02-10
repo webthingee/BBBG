@@ -10,6 +10,7 @@ public class PlayerMove : MonoBehaviour
 
     private Vector2 moveDir;
     private bool moveNow;
+    [HideInInspector] public bool doResetPlayerInput;
     
     private void Awake()
     {
@@ -23,12 +24,18 @@ public class PlayerMove : MonoBehaviour
         
         PlayerInput();
 
+        if (doResetPlayerInput)
+        {
+            moveDir = Vector3.zero;
+        }
+
         if (moveNow)
         {
             moveNow = false;
             
             transform.position = transform.position + (Vector3)moveDir;
             moveDir = Vector2.zero;
+            doResetPlayerInput = false;
         }
     }
 

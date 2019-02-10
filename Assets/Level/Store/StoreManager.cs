@@ -35,10 +35,12 @@ public class StoreManager : MonoBehaviour
     private void OnDisable()
     {
         canSelect = false;
-        Time.timeScale = 1;
-        
+
+        playerMove.doResetPlayerInput = true;
         playerMove.nextMoveTime = Time.time + playerMove.moveInterval;
         playerMove.canMove = true;
+        
+        Time.timeScale = 1;
     }
 
     private void Update()
