@@ -1,12 +1,10 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.Experimental.PlayerLoop;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class OptionsManager : MonoBehaviour 
 {    
-    #pragma warning disable 1
+    #pragma warning disable
     [Header("Scenes")]
     [SerializeField] private string gameScene;
     [SerializeField] private string optionsScene;
@@ -18,7 +16,7 @@ public class OptionsManager : MonoBehaviour
     [Header("Buttons")]
     [SerializeField] private Button gameStartButton;
     [SerializeField] private Button gameReturnButton;
-    #pragma warning enable 1
+    #pragma warning enable
 
     
     public void Start()

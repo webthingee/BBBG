@@ -589,6 +589,7 @@ GameObject:
   - component: {fileID: 336209676}
   - component: {fileID: 336209675}
   - component: {fileID: 336209677}
+  - component: {fileID: 336209674}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -596,6 +597,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &336209674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336209673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfdf74dc0c2c54af79917b77dde6da59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterVolume: 1
 --- !u!114 &336209675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -803,6 +817,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -817,7 +832,20 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
+  m_Enabled: 0
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1851,6 +1879,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sound Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 1081588504860714, guid: 0010ce66b0ca743349f09a54b832ca95, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4263351229126790, guid: 0010ce66b0ca743349f09a54b832ca95, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9
@@ -2612,19 +2644,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 457271108}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2112123546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2112123545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 504a0abb8b24147a387cd9491a522a20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioEvent: {fileID: 11400000, guid: 59df02add552e41449e7a3ce6dcfc425, type: 2}
 --- !u!1 &2126111184
 GameObject:
   m_ObjectHideFlags: 0
@@ -3050,8 +3069,22 @@ PrefabInstance:
     - target: {fileID: 8559990273193620353, guid: 3b971ef599d65462a943f5ed77a260f9,
         type: 3}
       propertyPath: damageAudioEvent
+      value: event:/Glitch_End
+      objectReference: {fileID: 0}
+    - target: {fileID: 8559990273193620353, guid: 3b971ef599d65462a943f5ed77a260f9,
+        type: 3}
+      propertyPath: damageEventInstance
       value: 
-      objectReference: {fileID: 11400000, guid: 793055cc805dc4cbabe28b4b7279bd17,
-        type: 2}
+      objectReference: {fileID: 0}
+    - target: {fileID: 8559990273193620353, guid: 3b971ef599d65462a943f5ed77a260f9,
+        type: 3}
+      propertyPath: damageEventInstance2
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8559990273193620353, guid: 3b971ef599d65462a943f5ed77a260f9,
+        type: 3}
+      propertyPath: _eventSound
+      value: event:/New Event
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b971ef599d65462a943f5ed77a260f9, type: 3}

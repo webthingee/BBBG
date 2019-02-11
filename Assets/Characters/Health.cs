@@ -6,7 +6,16 @@ public class Health : MonoBehaviour
     [SerializeField] private int maxHealth;
     [SerializeField] private int currentHealth;
 
-    public AudioEvent damageAudioEvent;
+    //public AudioEvent damageAudioEvent;
+
+    public FMOD.Studio.EventInstance audioAsset;
+    [FMODUnity.EventRef] public string damageAudioEvent; //The string representing the path to the event in your banks
+    FMOD.Studio.EventInstance HealthAudioEvent;
+    
+    
+//    [FMODUnity.EventRef] public string _eventSound; 
+//    FMOD.Studio.EventInstance _eventInstance; 
+//    FMOD.Studio.ParameterInstance _myParameter; public string _parameter;
 
     private HeartsDisplay hds;
 
@@ -58,8 +67,20 @@ public class Health : MonoBehaviour
     private void Awake()
     {
         hds = FindObjectOfType<HeartsDisplay>();
+
+//        if (_eventSound != null)
+//        {
+//            _eventInstance = FMODUnity.RuntimeManager.CreateInstance (_eventSound); 
+//            _eventInstance.getParameter(_parameter, out _myParameter); 
+//            _eventInstance.start ();
+//        }
     }
 
+//    void Update()
+//    {
+//        myParameter.setValue (currentHealth); // then select your event and write the name of your parameter in the inspector.
+//    }
+    
     private void Start()
     {
         CurrentHealth = maxHealth;
@@ -70,7 +91,10 @@ public class Health : MonoBehaviour
     {
         CurrentHealth -= damage;
 
-        if (damageAudioEvent != null) damageAudioEvent.Play(SoundManager.instance.GetOpenAudioSource());
+        //HealthAudioEvent = FMODUnity.RuntimeManager.CreateInstance(damageAudioEvent); //Create an instance of the event using the path name, and assign it to our variable
+        //HealthAudioEvent.setParameterValue("Parameter1", 1);
+        //HealthAudioEvent.start(); //Start the event 
+        FMODUnity.RuntimeManager.PlayOneShot(damageAudioEvent);
 
         var mainCam = Camera.main;
         if (mainCam == null) return;
