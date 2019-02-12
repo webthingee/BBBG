@@ -26,6 +26,6 @@ public class BossStage : MonoBehaviour
     public void StopStage()
     {
         GetComponentInChildren<TileRandomAppear>().enabled = false;
-        GetComponentInChildren<ProjectileSpawner>().enabled = false;    
+        if (GetComponentInChildren<ProjectileSpawner>() != null) GetComponentInChildren<ProjectileSpawner>().enabled = false;    
     }
 }

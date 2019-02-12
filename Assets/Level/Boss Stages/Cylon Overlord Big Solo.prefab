@@ -69,6 +69,7 @@ MonoBehaviour:
   keepAliveRange:
     minValue: 5
     maxValue: 6
+  definedSpots: []
   prefabTileToAppear: {fileID: 2603645654816763289, guid: 6bfb7bd7cce5945c0a27391569c9ccf3,
     type: 3}
 --- !u!1 &740945449290500268
@@ -117,6 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerWins: 0
+  overlord: {fileID: 4649490260878040614}
 --- !u!1001 &7448254545221719835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -196,6 +198,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a484c531be26c40d2b10c8019f7b167b, type: 3}
+--- !u!1 &4649490260878040614 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2872112155353090365, guid: a484c531be26c40d2b10c8019f7b167b,
+    type: 3}
+  m_PrefabInstance: {fileID: 7448254545221719835}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6178261975471909388 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3665961448698248471, guid: a484c531be26c40d2b10c8019f7b167b,

@@ -46,13 +46,10 @@ public class LevelMaster : MonoBehaviour
         
         if (store) store.SetActive(false);
         playerMove = FindObjectOfType<PlayerMove>();
-
-        //level = 0;
     }
 
     private void Start()
     {
-        level++;
         LoadNewLevel();
     }
 
@@ -186,7 +183,7 @@ public class LevelMaster : MonoBehaviour
 
     private void NextLevel()
     {
-        level++; // second appearance - improve?
+        level++;
         
         phaseCompleteBoss = false;
         
@@ -195,6 +192,7 @@ public class LevelMaster : MonoBehaviour
         if (level >= prefabBossStage.Length)
         {
             PlayerWins();
+            Debug.Log("SHOW WIN SCREEN!");
         }
         else
         {
@@ -207,6 +205,7 @@ public class LevelMaster : MonoBehaviour
         StopAllCoroutines();
         
         isPlayerDead = false;
+        level = 0;
         
         Debug.Log("Start New Game");
 
@@ -231,8 +230,6 @@ public class LevelMaster : MonoBehaviour
         phasePath = false;
         phaseBoss = false;
         phaseCompleteBoss = false;
-
-        int levelIndex = level - 1;
                 
         playerMove.transform.parent = null;
         playerMove.canMove = false;
@@ -246,13 +243,13 @@ public class LevelMaster : MonoBehaviour
             levelStage.GetComponent<PathMove>().moveInterval = levelSpeed;
             levelStage.GetComponent<PathMove>().canMove = false;
             PathColumnsGenerator generator = levelStage.GetComponentInChildren<PathColumnsGenerator>();
-            generator.columns = columns[levelIndex];
-            generator.initialOpen = initialOpen[levelIndex];
-            generator.endOpen = endOpen[levelIndex];
+            generator.columns = columns[level];
+            generator.initialOpen = initialOpen[level];
+            generator.endOpen = endOpen[level];
             
-            bossStage = Instantiate(prefabBossStage[levelIndex], prefabBossStage[levelIndex].transform.position, Quaternion.identity, levelStage.transform);
+            bossStage = Instantiate(prefabBossStage[level], prefabBossStage[level].transform.position, Quaternion.identity, levelStage.transform);
             Vector3 pos = bossStage.transform.position;
-            pos.x = columns[levelIndex];
+            pos.x = columns[level];
             bossStage.transform.position = pos;
         }
         
@@ -305,12 +302,13 @@ public class LevelMaster : MonoBehaviour
     
     IEnumerator PlayerHasWon()
     {
+        overlay.GetComponentInChildren<Image>().color = Color.black;
         overlay.SetActive(true);
         
         Debug.Log("Player Wins!");
         overlayText.text = "Player Wins";;
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
                 
         overlayText.text += "\n Press Any Key To Continue...";
         

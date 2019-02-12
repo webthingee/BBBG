@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnInterval:
-    minValue: 2
+    minValue: 4
     maxValue: 5
   prefabProjectileList:
   - {fileID: 2640311401528981580, guid: fc8888341ab0e44c195ad8185703b024, type: 3}
@@ -595,6 +595,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Turret (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7282830282538561337, guid: e6dc8e8e1f6c845cca30578f400feca2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Overlord
       objectReference: {fileID: 0}
     - target: {fileID: 7282830282538561338, guid: e6dc8e8e1f6c845cca30578f400feca2,
         type: 3}
@@ -1051,6 +1056,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7282830282538561337, guid: e6dc8e8e1f6c845cca30578f400feca2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Overlord
+      objectReference: {fileID: 0}
     - target: {fileID: 7282830282538561338, guid: e6dc8e8e1f6c845cca30578f400feca2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1356,6 +1366,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7282830282538561337, guid: e6dc8e8e1f6c845cca30578f400feca2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Overlord
+      objectReference: {fileID: 0}
     - target: {fileID: 7282830282538561338, guid: e6dc8e8e1f6c845cca30578f400feca2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1585,6 +1600,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Turret (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7282830282538561337, guid: e6dc8e8e1f6c845cca30578f400feca2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Overlord
       objectReference: {fileID: 0}
     - target: {fileID: 7282830282538561338, guid: e6dc8e8e1f6c845cca30578f400feca2,
         type: 3}

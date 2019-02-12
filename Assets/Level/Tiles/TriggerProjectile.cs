@@ -12,7 +12,7 @@ public class TriggerProjectile : MonoBehaviour
         GameObject p = Instantiate(prefabProjectile, transform.position, Quaternion.identity);
         
         Projectile pObj = p.GetComponent<Projectile>();
-        pObj.tag = "Player";
+        //pObj.tag = "Player";
         pObj.Init(Vector3.right, target, moveSpeed);
         pObj.GetComponent<Damage>().componentName = componentName;
     }

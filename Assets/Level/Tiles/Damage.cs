@@ -21,7 +21,7 @@ public class Damage : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag(transform.tag)) return;
-
+        
         if (other.GetComponent(componentName) == null) return;
 
         if (damageType == DamageTypes.Spike && other.GetComponentInChildren<BuffSpikeSafe>() != null) return;

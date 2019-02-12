@@ -366,11 +366,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -657,12 +657,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee0237649214a464e80696f936b9bb44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
+  level: 2
   doNotLoadLevel: 0
   prefabLevel: {fileID: 1062914669038528582, guid: 3fefc59d88c9d4d389785f9e2ec6c10c,
     type: 3}
-  levelSpeed: 1.25
-  columns: 160000001600000016000000
+  levelSpeed: 0.5
+  columns: 0b0000000b0000000b000000
   initialOpen: 050000000500000005000000
   endOpen: 000000000000000000000000
   prefabBossStage:
@@ -1552,11 +1552,11 @@ MonoBehaviour:
     lineCount: 0
     pageCount: 0
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -3096,11 +3096,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -3318,6 +3318,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8507890835187458620, guid: 3b971ef599d65462a943f5ed77a260f9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8507890835187458619, guid: 3b971ef599d65462a943f5ed77a260f9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3375,12 +3380,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 528479883, guid: 3b971ef599d65462a943f5ed77a260f9, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8507890835187458621, guid: 3b971ef599d65462a943f5ed77a260f9,
         type: 3}
       propertyPath: moveInterval
-      value: 0.75
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8559990273193620353, guid: 3b971ef599d65462a943f5ed77a260f9,
         type: 3}
@@ -3407,5 +3412,10 @@ PrefabInstance:
       propertyPath: sm
       value: 
       objectReference: {fileID: 2112123546}
+    - target: {fileID: 8559990273193620353, guid: 3b971ef599d65462a943f5ed77a260f9,
+        type: 3}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b971ef599d65462a943f5ed77a260f9, type: 3}
