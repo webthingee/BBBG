@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="ParameterPreset" id="{d5ae28d5-bcf4-4810-959d-3873ef9a8eb9}">
+        <property name="name">
+            <value>Heavy_Druma</value>
+        </property>
+        <relationship name="folder">
+            <destination>{b1f4c7b8-0a34-4c06-9018-d4cb80e2c49a}</destination>
+        </relationship>
+        <relationship name="parameter">
+            <destination>{f611b172-ef87-4f3f-b8bf-f3807982104b}</destination>
+        </relationship>
+    </object>
+    <object class="GameParameter" id="{f611b172-ef87-4f3f-b8bf-f3807982104b}">
+        <property name="initialValue">
+            <value>0</value>
+        </property>
+    </object>
+</objects>

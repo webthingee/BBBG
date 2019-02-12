@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{e93f0985-42e4-4184-94cd-35171ace1cb7}">
+        <property name="assetPath">
+            <value>342229__christopherderp__hurt-1-male.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>0.66176870748299321</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{8a371dda-c1be-4fc9-a4d1-3d80c212df13}</destination>
+        </relationship>
+    </object>
+</objects>

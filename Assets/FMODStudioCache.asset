@@ -13,19 +13,36 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 114015623106879364}
-  - {fileID: 114031171013054616}
-  - {fileID: 114609656649500490}
+  - {fileID: 114111626758009784}
+  - {fileID: 114788920052589236}
+  - {fileID: 114116176233253396}
+  - {fileID: 114416835536494376}
   EditorEvents:
-  - {fileID: 114997225103619302}
+  - {fileID: 114313961013194272}
+  - {fileID: 114733664484697968}
+  - {fileID: 114754701901933294}
   MasterBanks:
-  - {fileID: 114740704845751672}
-  - {fileID: 114031171013054616}
+  - {fileID: 114416835536494376}
   StringsBanks:
-  - {fileID: 114078361598975018}
-  - {fileID: 114015623106879364}
-  stringsBankWriteTime: 636854704170000000
+  - {fileID: 114111626758009784}
+  stringsBankWriteTime: 636855094680000000
   cacheVersion: 3
+--- !u!114 &114003965019032380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Parameter 1
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114015623106879364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39,11 +56,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: FMOD/bbbf_fmod/Build/Desktop/Master Bank.strings.bank
-  lastModified: 636854704170000000
+  lastModified: 636854863050000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 860
+    Value: 1014
   Exists: 1
 --- !u!114 &114026695247471824
 MonoBehaviour:
@@ -75,7 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: /Users/seanlange/Webthingee/Unity/Prototypes/BBBG/FMOD/bbbf_fmod/Build/Desktop/Master
     Bank.bank
-  lastModified: 636854704170000000
+  lastModified: 636854863050000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -203,6 +220,69 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114111626758009784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: FMOD/bbbf_fmod/Build/Desktop/Master Bank.strings.bank
+  lastModified: 636855094680000000
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 1014
+  Exists: 1
+--- !u!114 &114116176233253396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: /Users/seanlange/Webthingee/Unity/Prototypes/BBBG/FMOD/bbbf_fmod/Build/Desktop/SFX.bank
+  lastModified: 636855094680000000
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 46112
+  Exists: 1
+--- !u!114 &114117044937522784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/D001_Music
+  guid: 5650eb8f0a166244a9898e876d714b9d
+  Banks:
+  - {fileID: 114460341530923920}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 114587151505156116}
+  - {fileID: 114807764736741180}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 17454
 --- !u!114 &114139560827022900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,6 +302,22 @@ MonoBehaviour:
   - Name: Desktop
     Value: 450
   Exists: 0
+--- !u!114 &114141679736233628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Lead_Line
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114166045563663970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,6 +340,45 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1000
+--- !u!114 &114184766867116570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Dwight_Hurt
+  guid: 40cb5793549d224aa2f293e6a6b58546
+  Banks:
+  - {fileID: 114609656649500490}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1000
+--- !u!114 &114209724312860002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Heavy_Druma
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114240736977443560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,6 +414,47 @@ MonoBehaviour:
   - Name: Desktop
     Value: 16576
   Exists: 0
+--- !u!114 &114291519953640676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Heavy_Druma
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114313961013194272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/D001_Music
+  guid: 5650eb8f0a166244a9898e876d714b9d
+  Banks:
+  - {fileID: 114788920052589236}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 114209724312860002}
+  - {fileID: 114732178026505742}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 17454
 --- !u!114 &114329902739770782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,6 +519,45 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114416835536494376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: /Users/seanlange/Webthingee/Unity/Prototypes/BBBG/FMOD/bbbf_fmod/Build/Desktop/Master
+    Bank.bank
+  lastModified: 636855094680000000
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 12810
+  Exists: 1
+--- !u!114 &114460341530923920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: /Users/seanlange/Webthingee/Unity/Prototypes/BBBG/FMOD/bbbf_fmod/Build/Desktop/Music.bank
+  lastModified: 636854863050000000
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 1230816
+  Exists: 1
 --- !u!114 &114463688747256264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,6 +597,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114587151505156116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Heavy_Druma
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114592707908769914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -411,11 +642,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: /Users/seanlange/Webthingee/Unity/Prototypes/BBBG/FMOD/bbbf_fmod/Build/Desktop/SFX.bank
-  lastModified: 636854704170000000
+  lastModified: 636854863050000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 7648
+    Value: 46112
   Exists: 1
 --- !u!114 &114673919572647746
 MonoBehaviour:
@@ -468,6 +699,46 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114732178026505742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Lead_Line
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114733664484697968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Glitch_End
+  guid: 3636e0663899e14598219b6d1e1d97ac
+  Banks:
+  - {fileID: 114116176233253396}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 114003965019032380}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 368
 --- !u!114 &114735430256165004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -525,7 +796,81 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2742
+--- !u!114 &114754701901933294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Dwight_Hurt
+  guid: 40cb5793549d224aa2f293e6a6b58546
+  Banks:
+  - {fileID: 114116176233253396}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1000
+--- !u!114 &114788920052589236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: /Users/seanlange/Webthingee/Unity/Prototypes/BBBG/FMOD/bbbf_fmod/Build/Desktop/Music.bank
+  lastModified: 636855094680000000
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 1230848
+  Exists: 1
+--- !u!114 &114807764736741180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Lead_Line
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114818865514041590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Parameter 1
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114855129231084594
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -573,6 +918,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114903632670191350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Parameter 1
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114976441664356504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -609,7 +970,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 114358806866025460}
+  - {fileID: 114903632670191350}
   MinDistance: 0
   MaxDistance: 0
   Length: 368

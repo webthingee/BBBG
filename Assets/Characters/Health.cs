@@ -11,6 +11,8 @@ public class Health : MonoBehaviour
     public FMOD.Studio.EventInstance audioAsset;
     [FMODUnity.EventRef] public string damageAudioEvent; //The string representing the path to the event in your banks
     FMOD.Studio.EventInstance HealthAudioEvent;
+
+    public FMODUnity.StudioEventEmitter sm;
     
     
 //    [FMODUnity.EventRef] public string _eventSound; 
@@ -35,6 +37,11 @@ public class Health : MonoBehaviour
             if (currentHealth >= maxHealth)
             {
                 currentHealth = maxHealth;
+            }
+
+            if (currentHealth <= 2)
+            {
+                if (sm != null) sm.SetParameter("Lead_Line", 1);
             }
 
             if (CompareTag("Player")) hds.UpdateHeartsDisplay(maxHealth, currentHealth); //HeadsUpDisplay.instance.health.text = "Heart Beats \n" + currentHealth;
@@ -67,7 +74,6 @@ public class Health : MonoBehaviour
     private void Awake()
     {
         hds = FindObjectOfType<HeartsDisplay>();
-
 //        if (_eventSound != null)
 //        {
 //            _eventInstance = FMODUnity.RuntimeManager.CreateInstance (_eventSound); 
@@ -96,10 +102,10 @@ public class Health : MonoBehaviour
         //HealthAudioEvent.start(); //Start the event 
         FMODUnity.RuntimeManager.PlayOneShot(damageAudioEvent);
 
+        if (Camera.main == null) return;
         var mainCam = Camera.main;
-        if (mainCam == null) return;
-        mainCam.transform.DOPunchPosition(new Vector3(0.75f, 0.75f), 0.1f);
-        mainCam.transform.DOPunchRotation(new Vector3(0.75f, 0.75f), 0.1f);
+        mainCam.transform.DOPunchPosition(new Vector3(0.2f, 0.2f), 0.1f);
+        mainCam.transform.DOPunchRotation(new Vector3(0.2f, 0.2f), 0.1f);
     }
 
     public void Heal(int damage = 1)
