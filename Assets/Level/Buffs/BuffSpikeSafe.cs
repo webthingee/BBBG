@@ -5,7 +5,7 @@ public class BuffSpikeSafe : Buff
     private void Awake()
     {
         base.Awake();
-        Destroy(gameObject, 15f);
+        Destroy(gameObject, lengthToStay);
     }
 
     private void Start()

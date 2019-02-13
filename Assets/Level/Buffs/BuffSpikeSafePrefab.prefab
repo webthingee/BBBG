@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Rake Shield
+  lengthToStay: 20
   buffBadgePrefab: {fileID: 4797262029507950510, guid: 3b75020ba9d68470d99d04800b053453,
     type: 3}
   buffBadge: {fileID: 0}

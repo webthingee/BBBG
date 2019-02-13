@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  damageAudioEvent: {fileID: 11400000, guid: a4d6f6bfd0add4b48b450eb69d70bc0c, type: 2}
   targetInitialOnly: 1
 --- !u!114 &2640311401528981616
 MonoBehaviour:

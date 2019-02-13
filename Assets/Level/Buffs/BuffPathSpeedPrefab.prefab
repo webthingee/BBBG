@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Slow Path
+  lengthToStay: 15
   buffBadgePrefab: {fileID: 4797262029507950510, guid: 6e140f4575ff04c97a7c7b8cd8b1641b,
     type: 3}
   buffBadge: {fileID: 0}

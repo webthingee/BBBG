@@ -71,15 +71,15 @@ public class Health : MonoBehaviour
     {
         CurrentHealth -= damage;
 
-        if (CompareTag("Player"))
-        {
+        //if (transform.CompareTag("Player"))
+        //{
             damageAudioEvent.Play(SoundManager.instance.GetOpenAudioSource());
     
             if (Camera.main == null) return;
             var mainCam = Camera.main;
-            mainCam.transform.DOPunchPosition(new Vector3(0.2f, 0.2f), 0.1f);
-            mainCam.transform.DOPunchRotation(new Vector3(0.2f, 0.2f), 0.1f);
-        }
+            mainCam.transform.DOPunchPosition(new Vector3(0.5f, 0.5f), 0.15f);
+            mainCam.transform.DOPunchRotation(new Vector3(0.5f, 0.5f), 0.15f);
+        //}
     }
 
     public void Heal(int damage = 1)

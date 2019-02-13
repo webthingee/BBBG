@@ -3,6 +3,7 @@
 public class Buff : MonoBehaviour
 {
     public string title;
+    public float lengthToStay = 10f;
     public GameObject buffBadgePrefab;
     [HideInInspector] public GameObject buffBadge;
 

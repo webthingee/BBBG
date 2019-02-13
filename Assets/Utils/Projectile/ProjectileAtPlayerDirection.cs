@@ -6,6 +6,7 @@ public class ProjectileAtPlayerDirection : MonoBehaviour
 
     private PlayerMove playerMove;
     private Vector3 initialPos;
+    public AudioEvent damageAudioEvent;
 
     private void Awake()
     {
@@ -23,5 +24,12 @@ public class ProjectileAtPlayerDirection : MonoBehaviour
     {
         Vector3 moveDir = playerMove.transform.position - transform.position;
         return moveDir.normalized;
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!other.CompareTag("Player")) return;
+        
+        damageAudioEvent.Play(SoundManager.instance.GetOpenAudioSource());
     }
 }

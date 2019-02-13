@@ -131,11 +131,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cylon Overlord
       objectReference: {fileID: 0}
-    - target: {fileID: 2872112155353090365, guid: a484c531be26c40d2b10c8019f7b167b,
-        type: 3}
-      propertyPath: m_TagString
-      value: Overlord
-      objectReference: {fileID: 0}
     - target: {fileID: 3665961448698248471, guid: a484c531be26c40d2b10c8019f7b167b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -190,11 +185,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9018523536387564278, guid: a484c531be26c40d2b10c8019f7b167b,
-        type: 3}
-      propertyPath: maxHealth
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a484c531be26c40d2b10c8019f7b167b, type: 3}

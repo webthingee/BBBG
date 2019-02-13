@@ -8,7 +8,7 @@ public class BuffSpeed : Buff
     {
         base.Awake();
         playerMove = GetComponentInParent<PlayerMove>();
-        Destroy(gameObject, 5f);
+        Destroy(gameObject, lengthToStay);
     }
 
     private void Start()

@@ -4,6 +4,7 @@ public class Projectile : MonoBehaviour
 {    
     public float moveSpeed = 1;
     public Vector3 direction = Vector3.left;
+    public AudioEvent damageAudioEvent;
 
     public Transform target;
 
@@ -24,5 +25,12 @@ public class Projectile : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * moveSpeed);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!other.CompareTag("Player")) return;
+        
+        damageAudioEvent.Play(SoundManager.instance.GetOpenAudioSource());
     }
 }

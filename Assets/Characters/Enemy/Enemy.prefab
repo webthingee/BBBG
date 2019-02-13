@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  damageAudioEvent: {fileID: 11400000, guid: 004f9801c605643a69e04b6960d8ed19, type: 2}
 --- !u!114 &1869617507
 MonoBehaviour:
   m_ObjectHideFlags: 0

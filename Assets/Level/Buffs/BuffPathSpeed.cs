@@ -22,7 +22,7 @@ public class BuffPathSpeed : Buff
 
     public void BuffStart()
     {
-        Destroy(gameObject, 5f);
+        Destroy(gameObject, lengthToStay);
         
         if (pathMove == null) return; 
             

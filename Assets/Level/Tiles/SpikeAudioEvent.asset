@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioType: 0
   clips:
-  - {fileID: 8300000, guid: c2486c6572ab649ceb69b0ad2737c6a7, type: 3}
+  - {fileID: 8300000, guid: 1bca67b7aec9b40e8992a6dcdf30a94a, type: 3}
   volumeMin: 0.2
   volumeMax: 0.3
   pitchMin: 0.9
