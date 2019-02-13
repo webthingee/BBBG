@@ -27,7 +27,7 @@ public class BuffPathSpeed : Buff
         if (pathMove == null) return; 
             
         pathMove.moveInterval += 0.1f;
-        FindObjectOfType<LevelMaster>().levelSpeed += 0.1f;
+        FindObjectOfType<LevelMaster>().initialLevelSpeed += 0.1f;
         buffBadge = Instantiate(buffBadgePrefab, Vector3.zero, Quaternion.identity, displayAt);
 
     }
@@ -37,7 +37,7 @@ public class BuffPathSpeed : Buff
         if (pathMove == null) return;
         
         pathMove.moveInterval -= 0.1f;
-        FindObjectOfType<LevelMaster>().levelSpeed -= 0.1f;
+        FindObjectOfType<LevelMaster>().initialLevelSpeed -= 0.1f;
         Destroy(buffBadge);
     }
 }

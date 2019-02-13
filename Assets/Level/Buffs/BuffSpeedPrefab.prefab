@@ -43,7 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecef824ac365b47679565ba76c7e5468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: Fast Move
+  title: Fast Move (1m)
+  lengthToStay: 60
   buffBadgePrefab: {fileID: 4797262029507950510, guid: 51fe20af58f87427a9bea15e96b1cfd2,
     type: 3}
   buffBadge: {fileID: 0}

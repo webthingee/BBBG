@@ -14,7 +14,7 @@ public class LevelMaster : MonoBehaviour
     
     [Header("Level Stage")]
     public GameObject prefabLevel;
-    public float levelSpeed;
+    public float initialLevelSpeed;
     public int[] columns;
     public int[] initialOpen;
     public int[] endOpen;
@@ -45,7 +45,7 @@ public class LevelMaster : MonoBehaviour
         Singleton();
         
         if (store) store.SetActive(false);
-        playerMove = FindObjectOfType<PlayerMove>();
+        playerMove = FindObjectOfType<PlayerMove>();        
     }
 
     private void Start()
@@ -65,21 +65,12 @@ public class LevelMaster : MonoBehaviour
     }
 
     IEnumerator SetupPhase()
-    {        
-        //yield return new WaitForSeconds(1f);
+    {                
+        overlayText.text = "Starting Setup Process...";
         
-        Debug.Log("Start Setup");
-        overlayText.text = "Start Setup";
+        yield return new WaitForSeconds(3f);
         
-        //yield return new WaitForSeconds(1f);
-        
-        Debug.Log("Setting Up...");
-        overlayText.text = "Setting Up...";
-        
-        //yield return new WaitForSeconds(1f);
-        
-        Debug.Log("Press AnyKey To Begin");
-        overlayText.text = "Press AnyKey To Begin";
+        overlayText.text = "Setup Complete. Press AnyKey To Begin";
 
         while (!phasePath)
         {
@@ -87,24 +78,22 @@ public class LevelMaster : MonoBehaviour
             yield return null;
         }
         
-        Debug.Log("Complete Setup");
-        overlayText.text = "Complete Setup";
+        overlayText.text = "Cool, Ready In...";
         
         for (int i = 3; i > 0; i--)
         {
-            Debug.Log(i.ToString());
             overlayText.text += " " + i;
             
             yield return new WaitForSeconds(1f);
         }
         
-        Debug.Log("GO!");
-        overlay.GetComponentInChildren<Image>().color = Color.clear;
         overlayText.text = "GO!";
         
         yield return new WaitForSeconds(1f);
-
+        
         overlay.SetActive(false);
+        
+        yield return new WaitForSeconds(1f);
     }
 
     IEnumerator PathPhase()
@@ -240,7 +229,7 @@ public class LevelMaster : MonoBehaviour
         if (!doNotLoadLevel)
         {
             levelStage = Instantiate(prefabLevel, Vector3.zero, Quaternion.identity);
-            levelStage.GetComponent<PathMove>().moveInterval = levelSpeed;
+            levelStage.GetComponent<PathMove>().moveInterval = initialLevelSpeed;
             levelStage.GetComponent<PathMove>().canMove = false;
             PathColumnsGenerator generator = levelStage.GetComponentInChildren<PathColumnsGenerator>();
             generator.columns = columns[level];
