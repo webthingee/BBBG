@@ -13,4 +13,4 @@ public class Buff : MonoBehaviour
     {
         displayAt = FindObjectOfType<BuffBadgePanel>().transform;
     }
-}git
+}
