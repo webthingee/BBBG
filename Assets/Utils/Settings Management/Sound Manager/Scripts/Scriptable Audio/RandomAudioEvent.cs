@@ -6,11 +6,11 @@ public class RandomAudioEvent : AudioEvent
 {
 	public AudioClip[] clips;
 
-	[Range(0.1f, 1.9f)] public float volumeMin = 0.5f;
-	[Range(0.11f, 1)] public float volumeMax = 0.51f;
+	[Range(0.1f, 1f)] public float volumeMin = 0.5f;
+	[Range(0.1f, 1f)] public float volumeMax = 0.51f;
 	
-	[Range(0.1f, 1.9f)] public float pitchMin = 1.0f;
-	[Range(0.11f, 2f)] public float pitchMax = 1.1f;
+	[Range(0.1f, 2f)] public float pitchMin = 1.0f;
+	[Range(0.1f, 2f)] public float pitchMax = 1.1f;
 
 	public override void Play(AudioSource source)
 	{

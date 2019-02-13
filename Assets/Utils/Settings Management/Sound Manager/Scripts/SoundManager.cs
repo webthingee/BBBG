@@ -17,10 +17,14 @@ public class SoundManager : MonoBehaviour
     [Range(0,1), SerializeField] private float musicVolume = 0.75f;
     [Range(0,1), SerializeField] private float sfxVolume = 0.75f;
 
+    // Update anything live while changes occur
     public event Action OnMuiscVolumeChange = delegate { };
     
-    bool hasScheduledCleanup;
-    List<AudioSource> audioSources = new List<AudioSource>();
+    private SoundManagerUI soundManagerUI;
+    private bool soundManagerUIVisible;
+    
+    private List<AudioSource> audioSources = new List<AudioSource>();
+    private bool hasScheduledCleanup;
 
     public float SfxVolume
     {
@@ -31,20 +35,86 @@ public class SoundManager : MonoBehaviour
     public float MusicVolume
     {
         get { return musicVolume; }
-        set { musicVolume = MustBeBetween(value); OnMuiscVolumeChange();}
+        set { 
+            musicVolume = MustBeBetween(value); 
+            OnMuiscVolumeChange();
+            
+        }
     }
 
     void Awake ()
     {
         // Create as a singleton
-        instance = this;
+        Singleton();
+        
         // Populate the initial List<> of Audio Source Components
         BuildAudioSourcesList();
+        
         // Get Volume
-        MusicVolume = PlayerPrefs.GetFloat("MusicVolume");
-        SfxVolume = PlayerPrefs.GetFloat("SFXVolume");
+        GetMusicVolume();
+        GetSfxVolume();
+        
+        // Get SoundManagerUI
+        var r = Resources.FindObjectsOfTypeAll<SoundManagerUI>();
+        soundManagerUI = r[0];
+        
+        if (soundManagerUI == null)
+        {
+            Debug.Log("No Audio Manager Available");
+        }
+        
+        soundManagerUI.musicVolumeSlider.onValueChanged.AddListener(SetMusicVolume);
+        soundManagerUI.sfxVolumeSlider.onValueChanged.AddListener(SetSfxVolume);
     }
 
+    private void Update()
+    {        
+        soundManagerUI.musicVolumeSlider.value = musicVolume;
+        soundManagerUI.sfxVolumeSlider.value = sfxVolume;
+        
+        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.Escape))
+        {
+            soundManagerUIVisible = !soundManagerUIVisible;
+            soundManagerUI.gameObject.SetActive(soundManagerUIVisible);
+        }
+    }
+    
+    public void SetMusicVolume(float value)
+    {
+        MusicVolume = value;
+        PlayerPrefs.SetFloat("MusicVolume", value);
+    }
+
+    public void GetMusicVolume()
+    {        
+        if (PlayerPrefs.HasKey("MusicVolume"))
+        {
+            MusicVolume = PlayerPrefs.GetFloat("MusicVolume"); 
+        }
+        else
+        {
+            SetMusicVolume(0.5f);
+        }
+    }
+    
+    public void SetSfxVolume(float value)
+    {
+        SfxVolume = value;
+        PlayerPrefs.SetFloat("SFXVolume", value);
+    }
+
+    public void GetSfxVolume()
+    {        
+        if (PlayerPrefs.HasKey("SFXVolume"))
+        {
+            SfxVolume = PlayerPrefs.GetFloat("SFXVolume"); 
+        }
+        else
+        {
+            SetSfxVolume(0.5f);
+        }
+    }
+    
     private float MustBeBetween(float value, float min = 0f, float max = 1f)
     {
         return value < min ? min : (value > max ? max : value);
@@ -113,5 +183,18 @@ public class SoundManager : MonoBehaviour
         }
 
         hasScheduledCleanup = false;
+    }
+    
+    private void Singleton()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Debug.Log("not the instance " + name);
+            Destroy(gameObject);
+        }
     }
 }

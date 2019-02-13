@@ -148,6 +148,7 @@ MonoBehaviour:
   keepAliveRange:
     minValue: 5
     maxValue: 6
+  definedSpots: []
   prefabTileToAppear: {fileID: 2603645654816763289, guid: 8ada6353640534f509e80223c411f2ce,
     type: 3}
 --- !u!1 &740945449077138551
@@ -282,6 +283,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7282830282538561337, guid: e6dc8e8e1f6c845cca30578f400feca2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Overlord
+      objectReference: {fileID: 0}
     - target: {fileID: 7282830282538561338, guid: e6dc8e8e1f6c845cca30578f400feca2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -356,6 +362,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Turret (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7282830282538561337, guid: e6dc8e8e1f6c845cca30578f400feca2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Overlord
       objectReference: {fileID: 0}
     - target: {fileID: 7282830282538561338, guid: e6dc8e8e1f6c845cca30578f400feca2,
         type: 3}
@@ -432,6 +443,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7282830282538561337, guid: e6dc8e8e1f6c845cca30578f400feca2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Overlord
+      objectReference: {fileID: 0}
     - target: {fileID: 7282830282538561338, guid: e6dc8e8e1f6c845cca30578f400feca2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -506,6 +522,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Turret (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7282830282538561337, guid: e6dc8e8e1f6c845cca30578f400feca2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Overlord
       objectReference: {fileID: 0}
     - target: {fileID: 7282830282538561338, guid: e6dc8e8e1f6c845cca30578f400feca2,
         type: 3}
@@ -582,6 +603,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7282830282538561337, guid: e6dc8e8e1f6c845cca30578f400feca2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Overlord
+      objectReference: {fileID: 0}
     - target: {fileID: 7282830282538561338, guid: e6dc8e8e1f6c845cca30578f400feca2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -656,6 +682,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Turret (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7282830282538561337, guid: e6dc8e8e1f6c845cca30578f400feca2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Overlord
       objectReference: {fileID: 0}
     - target: {fileID: 7282830282538561338, guid: e6dc8e8e1f6c845cca30578f400feca2,
         type: 3}
@@ -732,6 +763,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7282830282538561337, guid: e6dc8e8e1f6c845cca30578f400feca2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Overlord
+      objectReference: {fileID: 0}
     - target: {fileID: 7282830282538561338, guid: e6dc8e8e1f6c845cca30578f400feca2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -806,6 +842,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 7282830282538561337, guid: e6dc8e8e1f6c845cca30578f400feca2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Overlord
       objectReference: {fileID: 0}
     - target: {fileID: 7282830282538561338, guid: e6dc8e8e1f6c845cca30578f400feca2,
         type: 3}
