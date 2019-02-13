@@ -8,7 +8,9 @@ public class PlayerMove : MonoBehaviour
     public float moveInterval = 1f;
     public float nextMoveTime;
 
-    private Vector2 moveDir;
+    public AudioEvent moveSound;
+
+    public Vector2 moveDir;
     private bool moveNow;
     [HideInInspector] public bool doResetPlayerInput;
     
@@ -24,27 +26,26 @@ public class PlayerMove : MonoBehaviour
         
         PlayerInput();
         
-        if (doResetPlayerInput)
-        {
-            moveDir = Vector3.zero;
-            doResetPlayerInput = false;
-        }
-
-        if (moveNow)
-        {
-            moveNow = false;
-            
-            transform.position = transform.position + (Vector3)moveDir;
-            moveDir = Vector2.zero;
-        }
-    }
-
-    private void FixedUpdate()
-    {
         if (Time.time > nextMoveTime)
         {
             nextMoveTime = Time.time + moveInterval;
-            moveNow = true;
+            //moveNow = false;
+
+            if (doResetPlayerInput)
+            {
+                moveDir = Vector2.zero;
+                //nextMoveTime = Time.time + moveInterval;
+                doResetPlayerInput = false;
+                return;
+            }
+
+            if (moveDir != Vector2.zero)
+            {
+                if (moveSound) moveSound.Play(SoundManager.instance.GetOpenAudioSource());
+                
+                transform.position = transform.position + (Vector3)moveDir;
+                moveDir = Vector2.zero;
+            }
         }
     }
 

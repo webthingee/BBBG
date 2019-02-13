@@ -148,6 +148,7 @@ MonoBehaviour:
     m_Bits: 256
   moveInterval: 0.75
   nextMoveTime: 0
+  moveSound: {fileID: 11400000, guid: b05c403ad6d3649d99fdded357748a6b, type: 2}
   doResetPlayerInput: 0
 --- !u!114 &8559990273193620353
 MonoBehaviour:

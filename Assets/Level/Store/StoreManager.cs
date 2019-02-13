@@ -34,20 +34,18 @@ public class StoreManager : MonoBehaviour
 
     private void OnDisable()
     {
-        canSelect = false;
-
-        playerMove.doResetPlayerInput = true;
-        playerMove.nextMoveTime = Time.time + playerMove.moveInterval;
-        playerMove.canMove = true;
-        
         Time.timeScale = 1;
+        
+        canSelect = false;
+        playerMove.canMove = true;
+        playerMove.doResetPlayerInput = true;        
     }
 
     private void Update()
-    {
+    {        
         if (!canSelect) return;
         
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             if (storeCoinList[0] > PointsManager.instance.Coins) return;
             PointsManager.instance.Coins -= storeCoinList[0];
@@ -55,7 +53,7 @@ public class StoreManager : MonoBehaviour
                 FindObjectOfType<PlayerMove>().transform);
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {
             if (storeCoinList[1] > PointsManager.instance.Coins) return;
             PointsManager.instance.Coins -= storeCoinList[1];
@@ -63,7 +61,7 @@ public class StoreManager : MonoBehaviour
                 FindObjectOfType<PlayerMove>().transform);
         }
         
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
             if (storeCoinList[2] > PointsManager.instance.Coins) return;
             PointsManager.instance.Coins -= storeCoinList[2];
@@ -71,7 +69,7 @@ public class StoreManager : MonoBehaviour
                 FindObjectOfType<PlayerMove>().transform);
         }
         
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
             canSelect = false;
             Time.timeScale = 1;
