@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Net.Http.Headers;
+using UnityEngine;
 
 public enum DamageTypes
 {
@@ -11,7 +12,7 @@ public class Damage : MonoBehaviour
 {
     public int damage = 1;
     public string componentName = "PlayerMove";
-    public DamageTypes damageType;
+    public DamageTypes damageType;    
 
     private void Awake()
     {

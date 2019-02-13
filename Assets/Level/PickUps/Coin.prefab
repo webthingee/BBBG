@@ -120,3 +120,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 1
+  coinAudioEvent: {fileID: 11400000, guid: f47777d1320364a8fa33523b83f4c6d5, type: 2}

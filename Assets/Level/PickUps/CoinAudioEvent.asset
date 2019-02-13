@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ace7397e0ac4d41c8afae089aa6f26fd, type: 3}
-  m_Name: PlayerHurt
+  m_Name: CoinAudioEvent
   m_EditorClassIdentifier: 
   audioType: 0
   clips:
-  - {fileID: 8300000, guid: a9c72ed327903447e8885cf7eb2d6127, type: 3}
-  - {fileID: 8300000, guid: 65d713e4b71634bf7829780f20df19cf, type: 3}
-  - {fileID: 8300000, guid: 96463bbb26b584040abeb398b1991d10, type: 3}
-  volumeMin: 0.6
-  volumeMax: 0.7
+  - {fileID: 8300000, guid: 7598a9b03bec4449d9d0521fd044c12d, type: 3}
+  volumeMin: 0.45
+  volumeMax: 0.55
   pitchMin: 0.9
   pitchMax: 1.1

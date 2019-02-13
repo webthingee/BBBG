@@ -146,7 +146,9 @@ MonoBehaviour:
   blocker:
     serializedVersion: 2
     m_Bits: 256
-  moveInterval: 0.5
+  moveInterval: 0.6
+  nextMoveTime: 0
+  doResetPlayerInput: 0
 --- !u!114 &8559990273193620353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,3 +163,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  damageAudioEvent: {fileID: 11400000, guid: eed71a7d606b64f1ead426d6b7af194c, type: 2}
+  healAudioEvent: {fileID: 11400000, guid: 74b503a750b3c4539a62a86b0e7989e1, type: 2}

@@ -169,3 +169,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 2
   currentHealth: 0
+  damageAudioEvent: {fileID: 11400000, guid: eed71a7d606b64f1ead426d6b7af194c, type: 2}
+  healAudioEvent: {fileID: 11400000, guid: 3cd4feb2e79624bda810ef8b3eedfcdd, type: 2}

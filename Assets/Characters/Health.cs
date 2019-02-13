@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
     [SerializeField] private int currentHealth;
 
     public AudioEvent damageAudioEvent;
+    public AudioEvent healAudioEvent;
 
     private HeartsDisplay hds;
 
@@ -70,16 +71,24 @@ public class Health : MonoBehaviour
     {
         CurrentHealth -= damage;
 
-        damageAudioEvent.Play(SoundManager.instance.GetOpenAudioSource());
-
-        if (Camera.main == null) return;
-        var mainCam = Camera.main;
-        mainCam.transform.DOPunchPosition(new Vector3(0.2f, 0.2f), 0.1f);
-        mainCam.transform.DOPunchRotation(new Vector3(0.2f, 0.2f), 0.1f);
+        if (CompareTag("Player"))
+        {
+            damageAudioEvent.Play(SoundManager.instance.GetOpenAudioSource());
+    
+            if (Camera.main == null) return;
+            var mainCam = Camera.main;
+            mainCam.transform.DOPunchPosition(new Vector3(0.2f, 0.2f), 0.1f);
+            mainCam.transform.DOPunchRotation(new Vector3(0.2f, 0.2f), 0.1f);
+        }
     }
 
     public void Heal(int damage = 1)
     {
         CurrentHealth += damage;
+
+        if (CompareTag("Player"))
+        {
+            healAudioEvent.Play(SoundManager.instance.GetOpenAudioSource());
+        }
     }
 }

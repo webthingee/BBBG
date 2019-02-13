@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5634261593790017889}
   - component: {fileID: 4825013445432339846}
   - component: {fileID: 3718497064154754372}
+  - component: {fileID: 9095116264221653688}
   m_Layer: 9
   m_Name: Spike
   m_TagString: Untagged
@@ -122,3 +123,16 @@ MonoBehaviour:
   damage: 1
   componentName: PlayerMove
   damageType: 1
+--- !u!114 &9095116264221653688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752606838134882900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05033bc751a964a04a925a4fb74ef895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spikeAudioEvent: {fileID: 11400000, guid: 9773efaff35c0489bb9fd6696c9fe953, type: 2}

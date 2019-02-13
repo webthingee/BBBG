@@ -3260,11 +3260,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8507890835187458620, guid: 3b971ef599d65462a943f5ed77a260f9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8507890835187458619, guid: 3b971ef599d65462a943f5ed77a260f9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3319,46 +3314,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 528479883, guid: 3b971ef599d65462a943f5ed77a260f9, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8507890835187458621, guid: 3b971ef599d65462a943f5ed77a260f9,
-        type: 3}
-      propertyPath: moveInterval
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8559990273193620353, guid: 3b971ef599d65462a943f5ed77a260f9,
-        type: 3}
-      propertyPath: damageAudioEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: eed71a7d606b64f1ead426d6b7af194c,
-        type: 2}
-    - target: {fileID: 8559990273193620353, guid: 3b971ef599d65462a943f5ed77a260f9,
-        type: 3}
-      propertyPath: damageEventInstance
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8559990273193620353, guid: 3b971ef599d65462a943f5ed77a260f9,
-        type: 3}
-      propertyPath: damageEventInstance2
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8559990273193620353, guid: 3b971ef599d65462a943f5ed77a260f9,
-        type: 3}
-      propertyPath: _eventSound
-      value: event:/New Event
-      objectReference: {fileID: 0}
-    - target: {fileID: 8559990273193620353, guid: 3b971ef599d65462a943f5ed77a260f9,
-        type: 3}
-      propertyPath: sm
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8559990273193620353, guid: 3b971ef599d65462a943f5ed77a260f9,
-        type: 3}
-      propertyPath: maxHealth
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b971ef599d65462a943f5ed77a260f9, type: 3}
