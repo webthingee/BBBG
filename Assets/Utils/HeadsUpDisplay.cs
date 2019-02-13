@@ -7,7 +7,7 @@ public class HeadsUpDisplay : MonoBehaviour
 
     public TextMeshProUGUI health;
     public TextMeshProUGUI beets;
-    public TextMeshProUGUI bears;
+    //public TextMeshProUGUI bears;
     
     private void Awake()
     {
@@ -25,7 +25,6 @@ public class HeadsUpDisplay : MonoBehaviour
         {
             Debug.Log("not the instance " + name);
             Destroy(gameObject); //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
-
         }
     }
 }

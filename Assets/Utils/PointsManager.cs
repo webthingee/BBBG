@@ -30,13 +30,13 @@ public class PointsManager : MonoBehaviour
     {
         get
         {
-            HeadsUpDisplay.instance.bears.text = "Bears Defeated \n" + bears;
+            //HeadsUpDisplay.instance.bears.text = "Bears Defeated \n" + bears;
             return bears; 
         }
         set
         {
             bears = value; 
-            HeadsUpDisplay.instance.bears.text = "Bears Defeated \n" + bears;
+            //HeadsUpDisplay.instance.bears.text = "Bears Defeated \n" + bears;
         }
     }
 

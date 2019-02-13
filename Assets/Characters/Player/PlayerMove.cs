@@ -11,7 +11,6 @@ public class PlayerMove : MonoBehaviour
     public AudioEvent moveSound;
 
     public Vector2 moveDir;
-    private bool moveNow;
     [HideInInspector] public bool doResetPlayerInput;
     
     private void Awake()
@@ -29,12 +28,10 @@ public class PlayerMove : MonoBehaviour
         if (Time.time > nextMoveTime)
         {
             nextMoveTime = Time.time + moveInterval;
-            //moveNow = false;
 
             if (doResetPlayerInput)
             {
                 moveDir = Vector2.zero;
-                //nextMoveTime = Time.time + moveInterval;
                 doResetPlayerInput = false;
                 return;
             }

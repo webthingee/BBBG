@@ -20,7 +20,7 @@ public class SoundManager : MonoBehaviour
     // Update anything live while changes occur
     public event Action OnMuiscVolumeChange = delegate { };
     
-    private SoundManagerUI soundManagerUI;
+    public SoundManagerUI soundManagerUI;
     private bool soundManagerUIVisible;
     
     private List<AudioSource> audioSources = new List<AudioSource>();
@@ -55,8 +55,8 @@ public class SoundManager : MonoBehaviour
         GetSfxVolume();
         
         // Get SoundManagerUI
-        var r = Resources.FindObjectsOfTypeAll<SoundManagerUI>();
-        soundManagerUI = r[0];
+//        var r = Resources.FindObjectsOfTypeAll<SoundManagerUI>();
+//        soundManagerUI = r[0];
         
         if (soundManagerUI == null)
         {
@@ -71,9 +71,9 @@ public class SoundManager : MonoBehaviour
     {        
         soundManagerUI.musicVolumeSlider.value = musicVolume;
         soundManagerUI.sfxVolumeSlider.value = sfxVolume;
-        
+                
         if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.Escape))
-        {
+        {    
             soundManagerUIVisible = !soundManagerUIVisible;
             soundManagerUI.gameObject.SetActive(soundManagerUIVisible);
         }
@@ -165,7 +165,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    /// Cleans the List<> of Audio Source Componenets in the GameObject
+    /// Cleans the List of Audio Source components in the GameObject
     IEnumerator CleanUpAudioSources ()
     {
         yield return new WaitForSeconds(cleanUpInterval);

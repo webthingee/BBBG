@@ -66,11 +66,11 @@ public class LevelMaster : MonoBehaviour
 
     IEnumerator SetupPhase()
     {                
-        overlayText.text = "Starting Setup Process...";
+        overlayText.text = "Processing Level " + level + 1 + " of 03";
         
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         
-        overlayText.text = "Setup Complete. Press AnyKey To Begin";
+        overlayText.text = "Ready! Press AnyKey To Begin";
 
         while (!phasePath)
         {
@@ -78,7 +78,7 @@ public class LevelMaster : MonoBehaviour
             yield return null;
         }
         
-        overlayText.text = "Cool, Ready In...";
+        overlayText.text = "Cool, Starting In...";
         
         for (int i = 3; i > 0; i--)
         {
