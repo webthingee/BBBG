@@ -2,7 +2,7 @@
 
 public class BossStageTurrets : BossStage
 {
-    private void Update()
+    protected void Update()
     {
         if (GetComponentInChildren<ProjectileSpawner>().turretsList.Count <= 0)
         {

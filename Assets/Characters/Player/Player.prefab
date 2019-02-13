@@ -146,7 +146,7 @@ MonoBehaviour:
   blocker:
     serializedVersion: 2
     m_Bits: 256
-  moveInterval: 0.6
+  moveInterval: 0.75
   nextMoveTime: 0
   doResetPlayerInput: 0
 --- !u!114 &8559990273193620353

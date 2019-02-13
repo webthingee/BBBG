@@ -147,8 +147,11 @@ MonoBehaviour:
     maxValue: 8
   keepAliveRange:
     minValue: 5
-    maxValue: 6
+    maxValue: 8
   definedSpots: []
+  dontPlaceOn:
+    serializedVersion: 2
+    m_Bits: 768
   prefabTileToAppear: {fileID: 2603645654816763289, guid: 8ada6353640534f509e80223c411f2ce,
     type: 3}
 --- !u!1 &740945449077138551
@@ -210,11 +213,11 @@ MonoBehaviour:
   destroyTime: 10
   useMultiSpawnPoints: 0
   multiSpawnPointsX:
-    minValue: 0
-    maxValue: 0
+    minValue: 20
+    maxValue: 26
   multiSpawnPointsY:
-    minValue: 0
-    maxValue: 0
+    minValue: -4
+    maxValue: 3
   turretsList:
   - {fileID: 1968911100388408696}
   - {fileID: 2095693204820169900}

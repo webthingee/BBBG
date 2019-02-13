@@ -9,6 +9,8 @@ public class TileRandomAppear : MonoBehaviour
     public MinMax keepAliveRange;
     public Transform[] definedSpots;
 
+    public LayerMask dontPlaceOn;
+
     public GameObject prefabTileToAppear;
 
     private void Update()
@@ -35,11 +37,26 @@ public class TileRandomAppear : MonoBehaviour
         
             pos = new Vector3(randX, randY, 0);
         }
-        
+                        
         var t = Instantiate(prefabTileToAppear, pos, Quaternion.identity, transform);
+        if (IsOccupiedPosition(t.transform.position))
+        {
+            Destroy(t);
+            nextMoveTime = Time.time;
+            return;
+        }
+        
         TriggerProjectile tProj = t.GetComponent<TriggerProjectile>();
         tProj.moveSpeed = 5f;
-        
+
         Destroy(t, Random.Range(keepAliveRange.minValue, keepAliveRange.maxValue));
+    }
+
+    private bool IsOccupiedPosition(Vector2 pos)
+    {        
+        //Debug.DrawRay(pos, Vector3.right, Color.red, 0.25f);
+        //var hit = Physics2D.Raycast(pos, Vector2.right, 0.25f, dontPlaceOn);
+        //if (hit) Debug.Log(hit.collider.name);
+        return Physics2D.Raycast(pos, Vector2.right, 0.25f, dontPlaceOn);
     }
 }
