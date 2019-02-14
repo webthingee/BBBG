@@ -71,7 +71,9 @@ public class SoundManager : MonoBehaviour
     {        
         soundManagerUI.musicVolumeSlider.value = musicVolume;
         soundManagerUI.sfxVolumeSlider.value = sfxVolume;
-                
+
+        if (LevelMaster.instance.noMenuAvailable) return;
+        
         if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.Escape))
         {    
             soundManagerUIVisible = !soundManagerUIVisible;

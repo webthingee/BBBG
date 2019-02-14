@@ -29,10 +29,13 @@ public class LevelMaster : MonoBehaviour
     [Header("Overlay")]
     public GameObject overlay;
     public TextMeshProUGUI overlayText;
+    public GameObject anyKey;
+    public GameObject[] imagesOverlay;
 
     [HideInInspector] public bool phasePath;
     [HideInInspector] public bool phaseBoss;
     [HideInInspector] public bool phaseCompleteBoss;
+    [HideInInspector] public bool noMenuAvailable;
     
     [HideInInspector] public GameObject levelStage;
     private GameObject bossStage;
@@ -45,7 +48,9 @@ public class LevelMaster : MonoBehaviour
         Singleton();
         
         if (store) store.SetActive(false);
-        playerMove = FindObjectOfType<PlayerMove>();        
+        playerMove = FindObjectOfType<PlayerMove>();
+
+        noMenuAvailable = true;
     }
 
     private void Start()
@@ -55,8 +60,14 @@ public class LevelMaster : MonoBehaviour
 
     IEnumerator PhasesMaster()
     {
+        foreach (GameObject image in imagesOverlay)
+        {
+            image.SetActive(false);
+        }
+        anyKey.SetActive(false);
         phasePath = false;
         overlay.SetActive(true);
+        if (level == 0) yield return StartCoroutine(Intro());
         yield return StartCoroutine(SetupPhase());
         yield return StartCoroutine(PathPhase());
         yield return StartCoroutine(BossPhase());
@@ -64,11 +75,56 @@ public class LevelMaster : MonoBehaviour
         Debug.Log("Done");
     }
 
+    IEnumerator Intro()
+    {
+        bool advance = false;        
+        yield return new WaitForSeconds(2f);
+        anyKey.SetActive(true);
+        while (!advance)
+        {
+            if (Input.anyKey) advance = true;
+            yield return null;
+        }
+        
+        //
+        advance = false;
+        anyKey.SetActive(false);
+        overlayText.text = "And the bears are loose \n eating beets and people";
+        yield return new WaitForSeconds(2f);
+        anyKey.SetActive(true);
+        while (!advance)
+        {
+            if (Input.anyKey) advance = true;
+            yield return null;
+        }
+        
+        //
+        advance = false;
+        anyKey.SetActive(false);
+        overlayText.text = "Dwight... Save The Farm!";
+        yield return new WaitForSeconds(2f);
+        anyKey.SetActive(true);
+        while (!advance)
+        {
+            if (Input.anyKey) advance = true;
+            yield return null;
+        }
+        
+        //
+        advance = false;
+        anyKey.SetActive(advance);
+        yield return new WaitForSeconds(0.5f);
+    }
+
     IEnumerator SetupPhase()
-    {                
+    {
+        noMenuAvailable = false;
+        
+        imagesOverlay[0].SetActive(true);
+        
         overlayText.text = "Processing Level " + level + 1 + " of 03";
         
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
         
         overlayText.text = "Ready! Press AnyKey To Begin";
 
